@@ -1,0 +1,43 @@
+const faqs = [
+    {
+        question: "How do I reset my password?",
+        answer: "Click the link under School Profile to get an email to reset your password."
+    },
+    {
+        question: "When can I register for conference?",
+        answer: "The registration button will be made active on the day that registration opens. For the exact date, navigate to the timeline on the right side of the page"
+    },
+    {
+        question: "How do the fees work?",
+        answer: "We charge a flat, nonrefundable 60 USD school fee for each registration. Each delegate requires a registration fee of 95 USD."
+    },
+    {
+        question: "What do I do if I want to add or drop delegates?",
+        answer: "To add or drop delegates from your registration, contact us at info@bmun.org and tech@bmun.org. We will provide you with a response within 5 business days."
+    },
+    {
+        question: "Will there be a waitlist this year?",
+        answer: "If we hit our registration cap prior to the end of any registration period we will automatically transition to the waitlist. The waitlist is on a first-come-first-serve basis with a strict cap on how many each school can register."
+    }
+]
+
+function FAQPanel() {
+    return (
+        <div className="flex flex-col w-full">
+            <h2 className="text-7xl">FAQs</h2>
+            <div className="text-xl">
+                {faqs.map((faq, index) => (
+                    <div className="collapse bg-secondary border border-base-300" key={index}>
+                        {index == 0 ? 
+                        <input type="radio" name="my-accordion-1" defaultChecked />
+                        : <input type="radio" name="my-accordion-1" />}
+                        <div className="collapse-title font-semibold">{faq.question}</div>
+                        <div className="collapse-content text-md">{faq.answer}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+export default FAQPanel;
