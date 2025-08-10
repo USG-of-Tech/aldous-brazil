@@ -339,7 +339,7 @@ export interface RegistrationProps {
     num_advanced_delegates: number,
     num_spanish_speaking_delegates: number,
     num_chinese_speaking_delegates: number,
-    delegate_fees_paid: boolean,
+    delegate_fees_paid: number,
     registration_fee_paid: boolean,
     is_waitlisted: boolean
 }

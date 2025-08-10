@@ -27,7 +27,7 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                 num_advanced_delegates: numAdvanced,
                 num_spanish_speaking_delegates: numSpanish,
                 num_chinese_speaking_delegates: numChinese,
-                delegate_fees_paid: false,
+                delegate_fees_paid: 0,
                 registration_fee_paid: false,
                 is_waitlisted: false
             });
@@ -47,39 +47,66 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                 <fieldset className="fieldset z-20 bg-base-200 border-base-300 rounded-box w-md border p-4 opacity-100">
                     <h3 className="text-4xl">Register for BMUN {currentConference.session}</h3>
                     <label className="label text-xl">Number of Beginner Delegates</label>
-                    <input 
-                        type="number" 
-                        className="input input-lg w-full"
-                        value={numBeginner}
-                        onChange={(event) => Number(event.target.value) < 0 ? setNumBeginner(0) : setNumBeginner(Number(event.target.value))}/>
-                    
+                    <input
+                    type="text"
+                    className="input input-lg w-full"
+                    value={numBeginner.toString()}
+                    onChange={(e) => {
+                        // Remove all non-digit characters
+                        const cleaned = e.target.value.replace(/\D/g, "");
+                        // Parse to number or fallback 0
+                        const num = cleaned === "" ? 0 : Number(cleaned);
+                        setNumBeginner(num);
+                    }}
+                    />
+
                     <label className="label text-xl">Number of Intermediate Delegates</label>
-                    <input 
-                        type="number" 
-                        className="input input-lg w-full"
-                        value={numIntermediate}
-                        onChange={(event) => Number(event.target.value) < 0 ? setNumIntermediate(0) : setNumIntermediate(Number(event.target.value))}/>
+                    <input
+                    type="text"
+                    className="input input-lg w-full"
+                    value={numIntermediate.toString()}
+                    onChange={(e) => {
+                        const cleaned = e.target.value.replace(/\D/g, "");
+                        const num = cleaned === "" ? 0 : Number(cleaned);
+                        setNumIntermediate(num);
+                    }}
+                    />
 
                     <label className="label text-xl">Number of Advanced Delegates</label>
-                    <input 
-                        type="number" 
-                        className="input input-lg w-full"
-                        value={numAdvanced}
-                        onChange={(event) => Number(event.target.value) < 0 ? setNumAdvanced(0) : setNumAdvanced(Number(event.target.value))}/>
+                    <input
+                    type="text"
+                    className="input input-lg w-full"
+                    value={numAdvanced.toString()}
+                    onChange={(e) => {
+                        const cleaned = e.target.value.replace(/\D/g, "");
+                        const num = cleaned === "" ? 0 : Number(cleaned);
+                        setNumAdvanced(num);
+                    }}
+                    />
 
                     <label className="label text-xl">Number of Spanish Speaking Delegates</label>
-                    <input 
-                        type="number" 
-                        className="input input-lg w-full"
-                        value={numSpanish}
-                        onChange={(event) => Number(event.target.value) < 0 ? setNumSpanish(0) : setNumSpanish(Number(event.target.value))}/>
+                    <input
+                    type="text"
+                    className="input input-lg w-full"
+                    value={numSpanish.toString()}
+                    onChange={(e) => {
+                        const cleaned = e.target.value.replace(/\D/g, "");
+                        const num = cleaned === "" ? 0 : Number(cleaned);
+                        setNumSpanish(num);
+                    }}
+                    />
 
                     <label className="label text-xl">Number of Chinese Speaking Delegates</label>
-                    <input 
-                        type="number" 
-                        className="input input-lg w-full"
-                        value={numChinese}
-                        onChange={(event) => Number(event.target.value) < 0 ? setNumChinese(0) : setNumChinese(Number(event.target.value))}/>
+                    <input
+                    type="text"
+                    className="input input-lg w-full"
+                    value={numChinese.toString()}
+                    onChange={(e) => {
+                        const cleaned = e.target.value.replace(/\D/g, "");
+                        const num = cleaned === "" ? 0 : Number(cleaned);
+                        setNumChinese(num);
+                    }}
+                    />
                     <label className="label text-xl">
                         <input type="checkbox" checked={onlinePayment} className="toggle toggle-primary" onChange={(_) => setOnlinePayment(!onlinePayment)} />
                         Pay Online
