@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { signUpAdvisor } from "../utils/supabaseHelpers";
 
-interface AccountStruct {
-    first_name: string,
-    last_name: string,
-    email: string,
-    password: string,
-    password_c: string,
-}
-
 interface AccountProps {
     updatePage: Function,
     setNewId: Function
@@ -67,6 +59,7 @@ function AccountInfo({updatePage, setNewId}: AccountProps) {
             setNewId(newId);
             updatePage();
         } catch(error) {
+            console.error(error);
             alert("Sign up failed, please try again");
         }
         setLoading(false);
@@ -127,7 +120,7 @@ function AccountInfo({updatePage, setNewId}: AccountProps) {
                 <div>
                     <button
                         className="btn btn-outline btn-lg btn-primary w-full mt-2" 
-                        onClick={async (e) => await handleCreateAccount()}
+                        onClick={async (_) => await handleCreateAccount()}
                         disabled={!(email.length > 0 && password.length > 0 && passwordC.length > 0 && !emailError && !passwordError && !passwordCError) || loading}
                     >
                         {loading ? <span className="loading loading-spinner"></span> : <></>}

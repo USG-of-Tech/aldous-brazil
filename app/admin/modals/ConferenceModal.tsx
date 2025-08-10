@@ -16,7 +16,8 @@ function ConferenceForm ({creatingConference, setCreatingConference, formData, s
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
     setFormData({
       ...formData,
       [name]: type === "checkbox"
@@ -41,7 +42,7 @@ function ConferenceForm ({creatingConference, setCreatingConference, formData, s
     console.log("Form Data Submitted:", formData);
   };
 
-  const isFormComplete = Object.entries(formData).every(([key, value]) => {
+  const isFormComplete = Object.entries(formData).every(([_, value]) => {
     if (typeof value === "number") return !isNaN(value);
     return value !== "";
   });
@@ -63,7 +64,7 @@ function ConferenceForm ({creatingConference, setCreatingConference, formData, s
                             <input
                                 type="checkbox"
                                 name={key}
-                                checked={formData[key]} // This will give an error but it is fine, we know that it will produce a boolean
+                                checked={value} // This will give an error but it is fine, we know that it will produce a boolean
                                 onChange={handleChange}
                                 className="toggle toggle-primary items-end"
                             />

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AccountInfo from "./AccountInfo";
 import SchoolInfo from "./SchoolInfo";
-import RegistrationInfo from "./RegistrationInfo";
 import { currentConference } from "../utils/supabaseHelpers";
 
 interface AccountProps {
@@ -20,7 +19,7 @@ function AccountModal({registering, setRegistering}: AccountProps) {
             <div className="absolute z-10 w-screen h-screen flex flex-row items-center justify-center">
                 <div 
                     className="absolute z-20 w-full h-full bg-black opacity-50" 
-                    onClick={(e) => {
+                    onClick={(_) => {
                         setRegistering(false);
                         if (page == 3) {
                             setPage(0);
@@ -38,7 +37,7 @@ function AccountModal({registering, setRegistering}: AccountProps) {
                                 have been to BMUN before&#41;. Once you are able to sign in, you can register on the main page for your account. 
                                 If you have any questions about the registration process, our timeline, or our new website please go to the following FAQ.
                             </p>
-                            <button className="btn btn-outline btn-primary mt-4" onClick={(e) => updatePage()}>
+                            <button className="btn btn-outline btn-primary mt-4" onClick={(_) => updatePage()}>
                                 Next
                             </button>
                         </div> 
@@ -56,7 +55,7 @@ function AccountModal({registering, setRegistering}: AccountProps) {
                                 You have created your advisor account and you are now able to register for BMUN {currentConference.session}! Proceed to the login form and access the main 
                                 page of your account to register your delegates.
                             </p>
-                            <button className="btn btn-outline btn-primary mt-4" onClick={(e) => {setRegistering(false); setPage(0)}}>
+                            <button className="btn btn-outline btn-primary mt-4" onClick={(_) => {setRegistering(false); setPage(0)}}>
                                 Exit
                             </button>
                         </div> )

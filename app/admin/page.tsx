@@ -15,7 +15,7 @@ function AdminView() {
     // TODO: Clean this up too slow rn
     useEffect(() => {(async () => {
         await autoRedirect(router);
-    })()}, [])
+    })()}, [router])
 
     async function handleLogout() {
         setLoading(true);

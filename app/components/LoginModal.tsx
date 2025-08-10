@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import { currentConference, getSupabaseUser, loginUser } from "../utils/supabaseHelpers";
+import { useState } from "react";
+import { currentConference, loginUser } from "../utils/supabaseHelpers";
 import { useRouter } from 'next/navigation';
 import { autoRedirect } from "../utils/generalHelper";
 
@@ -16,7 +16,7 @@ function LoginModal({setRegistering}: LoginProps) {
     const [passwordError, setPasswordError] = useState(false);
     const [loading, setLoading] = useState(false);
     const [loginError, setLoginError] = useState(false);
-    const [signMessage, setSignMessage] = useState('Sign Up')
+    const [signMessage, _] = useState('Sign Up')
     const router = useRouter();
 
     async function handleLogin() {
@@ -61,12 +61,12 @@ function LoginModal({setRegistering}: LoginProps) {
 
                 {loginError ? <label className="label text-red-400">Username or password incorrect</label> : <></>}
                 
-                <button className="btn btn-lg btn-primary w-full mt-4" disabled={loading} onClick={async (e) => await handleLogin()}>
+                <button className="btn btn-lg btn-primary w-full mt-4" disabled={loading} onClick={async (_) => await handleLogin()}>
                     {loading ? <span className="loading loading-spinner"></span> : <></>}
                     Login
                 </button>
                 <div className="divider m-0">OR</div>
-                <button className="btn btn-lg btn-secondary w-full" onClick={(e) => setRegistering(true)}>{signMessage}</button>
+                <button className="btn btn-lg btn-secondary w-full" onClick={(_) => setRegistering(true)}>{signMessage}</button>
             </fieldset>
         </div>
     )

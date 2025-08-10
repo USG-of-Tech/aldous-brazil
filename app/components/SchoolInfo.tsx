@@ -24,7 +24,7 @@ function Schoolinfo({updatePage, newId}: SchoolInfoProps) {
     const stringFields = [name, address, city, state, zipCode, country, programType, primaryName, primaryEmail, primaryPhone]
     const buttonDisabled = useMemo(() => {
         return stringFields.some(field => field.length === 0);
-      }, [name, address, city, state, zipCode, country, programType, primaryName, primaryEmail, primaryPhone]);
+      }, [stringFields]);
       
 
     const [secondaryName, setSecondaryName] = useState('')
@@ -84,7 +84,7 @@ function Schoolinfo({updatePage, newId}: SchoolInfoProps) {
                 <h4 className="text-2xl mb-2 text-primary">General Information *</h4>
                 <div className="flex flex-col gap-4">
                     <label className="label">
-                        <input type="checkbox" checked={international} className="toggle toggle-primary" onChange={(e) => {setInternational(!international); setCountry('')}} />
+                        <input type="checkbox" checked={international} className="toggle toggle-primary" onChange={(_) => {setInternational(!international); setCountry('')}} />
                         International School (Outside of the United States)
                     </label>
                     <input 
@@ -146,7 +146,7 @@ function Schoolinfo({updatePage, newId}: SchoolInfoProps) {
                 <h4 className="text-2xl my-2 text-primary">Primary Contact *</h4>
                 <div className="flex flex-col gap-4">
                     <label className="label">
-                        <input type="checkbox" checked={primaryStudent} className="toggle toggle-primary" onChange={(e) => setPrimaryStudent(!primaryStudent)}  />
+                        <input type="checkbox" checked={primaryStudent} className="toggle toggle-primary" onChange={(_) => setPrimaryStudent(!primaryStudent)}  />
                         Student Advisor
                     </label>
                     <input 
@@ -173,7 +173,7 @@ function Schoolinfo({updatePage, newId}: SchoolInfoProps) {
                 <h4 className="text-2xl my-2 text-primary">Secondary Contact (Optional)</h4>
                 <div className="flex flex-col gap-4">
                     <label className="label">
-                    <input type="checkbox" checked={secondaryStudent} className="toggle toggle-primary" onChange={(e) => setSecondaryStudent(!secondaryStudent)}  />
+                    <input type="checkbox" checked={secondaryStudent} className="toggle toggle-primary" onChange={(_) => setSecondaryStudent(!secondaryStudent)}  />
                         Student Advisor
                     </label>
                     <input 
@@ -199,7 +199,7 @@ function Schoolinfo({updatePage, newId}: SchoolInfoProps) {
             <div className={`${buttonDisabled ? 'tooltip' : ''} w-full`} data-tip="Please fill out all required forms *">
                 <button 
                     className="btn btn-outline btn-primary mt-4 w-full"
-                    onClick={async (e) => await handleNewSchool()}
+                    onClick={async (_) => await handleNewSchool()}
                     disabled={buttonDisabled}
                     >
                     {loading ? <span className="loading loading-spinner"></span> : <></>}

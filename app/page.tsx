@@ -13,13 +13,12 @@ import { autoRedirect } from "./utils/generalHelper";
 
 export default function Home() {
   const [registering, setRegistering] = useState(false);
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   // TODO: Clean this up, too slow
   useEffect(() => {(async () => {
     await autoRedirect(router);
-  })()}, [])
+  })()}, [router])
 
   return (
     // <div className="bg-linear-65 from-[#63bce8] to-white">

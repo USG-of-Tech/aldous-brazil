@@ -34,7 +34,7 @@ function AssignmentView() {
     })()}, []);
 
     const rejectAssignment = async (assignment: AssignmentProps) => {
-        const success = await updateAssignment(
+        await updateAssignment(
             {...assignment, "rejected": true}
         );
     }

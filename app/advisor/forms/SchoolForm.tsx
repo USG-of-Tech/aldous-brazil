@@ -16,7 +16,7 @@ function SchoolForm({setSchoolLoading}: SchoolFormProps) {
         setSchool(newSchool);
         setOGSchool(newSchool);
         setSchoolLoading(false);
-    })()}, []);
+    })()}, [setSchoolLoading]);
 
     function canUpdate() {
         return JSON.stringify(school) !== JSON.stringify(ogSchool);
@@ -60,7 +60,9 @@ function SchoolForm({setSchoolLoading}: SchoolFormProps) {
                             type="checkbox"
                             checked={school.international}
                             onChange={(e) => {
-                                school.international ? setSchool({ ...school, ["country"]: "United States" }) : "";
+                                if (school.international) {
+                                    setSchool({ ...school, ["country"]: "United States" });
+                                }
                                 handleChange('international', e.target.checked);
                             }}
                             className="toggle toggle-primary"

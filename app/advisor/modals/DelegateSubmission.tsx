@@ -1,6 +1,6 @@
 'use client';
 
-import { DelegateProps, getUsersFromAssignment, signUpDelegate } from "@/app/utils/supabaseHelpers";
+import { DelegateProps, signUpDelegate } from "@/app/utils/supabaseHelpers";
 import { useEffect, useState } from "react";
 
 interface DelegateSubmissionProps {
@@ -80,7 +80,7 @@ function DelegateSubmission({countryName,
         } catch (e) {
             console.error(e);
         }
-    })()}, [assignmentId, submittingDelegates])
+    })()}, [assignmentId, assignmentDelegates, submittingDelegates])
 
     const handlePrimarySubmission = async () => {
         setPrimaryLoading(true);

@@ -1,7 +1,5 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { AssignmentUploadProps, getSupabaseUser, uploadAssignments } from "./supabaseHelpers";
-import { useRouter } from 'next/navigation';
-import { useRef } from "react";
+import { getSupabaseUser } from "./supabaseHelpers";
 
 export async function autoRedirect(router: AppRouterInstance) {
     try {

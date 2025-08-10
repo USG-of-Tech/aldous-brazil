@@ -6,7 +6,6 @@ import AssignmentView from "./views/AssignmentView";
 import { autoRedirect } from "../utils/generalHelper";
 import { useRouter } from 'next/navigation';
 import RegistrationView from "./views/RegistrationView";
-import Image from 'next/image';
 import GuideView from "./views/GuideView";
 
 function AdvisorView() {
@@ -17,7 +16,7 @@ function AdvisorView() {
     // TODO: Clean this up too slow rn
     useEffect(() => {(async () => {
         await autoRedirect(router);
-    })()}, [])
+    })()}, [router])
 
     async function handleLogout() {
         setLoading(true);

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import CommitteeModal from "../modals/CommitteeModal";
-import { CommitteeProps, getCommittees, ConferenceProps, getConferences, uploadAssignments, AssignmentUploadProps } from "../../utils/supabaseHelpers";
+import { CommitteeProps, getCommittees, ConferenceProps, uploadAssignments, AssignmentUploadProps } from "../../utils/supabaseHelpers";
 import ConferenceModal from "../modals/ConferenceModal";
 import { defaultConferenceData } from "@/app/utils/generalHelper";
 

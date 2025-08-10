@@ -5,12 +5,11 @@ import { openingSpiel } from "../OpeningSpiel";
 import { useEffect, useState } from "react";
 
 interface RegistrationPanelProps {
-    creatingRegistration: boolean,
     setCreatingRegistration: Function,
     setRegLoading: Function
 }
 
-function RegistrationPanel({creatingRegistration, setCreatingRegistration, setRegLoading}: RegistrationPanelProps) {
+function RegistrationPanel({setCreatingRegistration, setRegLoading}: RegistrationPanelProps) {
     const [registered, setRegistered] = useState(false);
     const [registration, setRegistration] = useState<RegistrationProps>();
 
@@ -22,7 +21,7 @@ function RegistrationPanel({creatingRegistration, setCreatingRegistration, setRe
             setRegistration(newReg);
         }
         setRegLoading(false);
-    })()}, []);
+    })()}, [setRegLoading]);
 
     return (
         <div className="flex flex-col w-full p-2">

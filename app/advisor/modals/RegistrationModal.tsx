@@ -1,6 +1,6 @@
 'use client';
 
-import { RegistrationProps, createRegistration, currentConference } from "@/app/utils/supabaseHelpers";
+import { createRegistration, currentConference } from "@/app/utils/supabaseHelpers";
 import React, { useState } from "react";
 
 interface RegistrationModalProps {
@@ -26,7 +26,10 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                 num_intermediate_delegates: numIntermediate,
                 num_advanced_delegates: numAdvanced,
                 num_spanish_speaking_delegates: numSpanish,
-                num_chinese_speaking_delegates: numChinese
+                num_chinese_speaking_delegates: numChinese,
+                delegate_fees_paid: false,
+                registration_fee_paid: false,
+                is_waitlisted: false
             });
             if (success) {
                 window.location.reload();
@@ -78,7 +81,7 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                         value={numChinese}
                         onChange={(event) => Number(event.target.value) < 0 ? setNumChinese(0) : setNumChinese(Number(event.target.value))}/>
                     <label className="label text-xl">
-                        <input type="checkbox" checked={onlinePayment} className="toggle toggle-primary" onChange={(e) => setOnlinePayment(!onlinePayment)} />
+                        <input type="checkbox" checked={onlinePayment} className="toggle toggle-primary" onChange={(_) => setOnlinePayment(!onlinePayment)} />
                         Pay Online
                     </label>
                     <button 

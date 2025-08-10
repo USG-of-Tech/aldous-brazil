@@ -51,8 +51,8 @@ export async function signUpDelegate(first_name: string, last_name: string, emai
         password: password
     });
 
-    if (signUpError) {
-        console.error('Error creating user:', signUpError.message);
+    if (signUpError || signUpData == null || signUpData.user == null) {
+        console.error('Error creating user:', signUpError);
         return;
     }
 
@@ -135,10 +135,6 @@ export async function createSchool(schoolProps: SchoolProps) {
 }
 
 export async function linkSchool(userId: string, schoolId: number) {
-    const {data, error: testError } = await supabase.from('Users')
-        .select()
-        .eq('id', userId);
-
     const { error } = await supabase.from('Users')
         .update({ school_id: schoolId })
         .eq('id', userId);
@@ -296,7 +292,7 @@ export interface ConferenceProps {
 }
 
 export async function createOrUpdateConference(conferenceStruct: ConferenceProps) {
-    const {data, error} = await supabase.from("Conference")
+    const {data:_, error} = await supabase.from("Conference")
         .upsert(conferenceStruct, 
             {onConflict: "session"}
         );
@@ -380,7 +376,7 @@ export async function createRegistration(registrationStruct: RegistrationProps) 
     const totalDels = registrationStruct.num_beginner_delegates + registrationStruct.num_intermediate_delegates + registrationStruct.num_advanced_delegates;  
     const delFeesOwed = conference.del_fee * totalDels
 
-    const {data, error} = await supabase.from('Registration')
+    const {data:_, error} = await supabase.from('Registration')
         .insert({
             ...registrationStruct,
             "school_id": user.school_id,
@@ -406,7 +402,7 @@ export interface AssignmentProps {
 }
 
 export async function createAssignment(assignmentValues: AssignmentProps) {
-    const {data, error} = await supabase.from('Assignment')
+    const {data:_, error} = await supabase.from('Assignment')
         .insert(assignmentValues);
 
     if (error) {
@@ -512,8 +508,12 @@ export async function uploadAssignments(newAssignments: AssignmentUploadProps[])
             committee_name: assignment.committee_name,
             registration_id: parseInt(registration_id),
             country_name: assignment.country_name,
-            rejected: false
+            rejected: false,
+            id: Math.floor(Math.random() * 2_147_483_648)
         });
+        if (!success) {
+            return false;
+        }
     })
 }
 
@@ -550,7 +550,7 @@ export async function updateAssignment(newAssignment: AssignmentProps) {
 
 export async function getAmountRegistered() {
     const { data, error } = await supabase.rpc('get_delegate_total_count');
-    
+
     if (error) {
         console.error('Error fetching delegate count:', error);
         return 0;

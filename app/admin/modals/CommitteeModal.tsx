@@ -73,7 +73,7 @@ function CommitteeModal({creatingCommittee, setCreatingCommittee}: CommitteeProp
                     />
 
                     <label className="label text-lg">
-                        <input type="checkbox" checked={special} className="toggle toggle-primary" onChange={(e) => setSpecial(!special)} />
+                        <input type="checkbox" checked={special} className="toggle toggle-primary" onChange={(_) => setSpecial(!special)} />
                         Specialized Committee
                     </label>
 
