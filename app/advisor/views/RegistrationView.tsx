@@ -25,7 +25,7 @@ function RegistrationView() {
                     <SchoolForm setSchoolLoading={setSchoolLoading} />
                     <FAQPanel />
                 </div>
-                <div className={`${regLoading ? 'hidden' : ''} flex flex-col justify-start items-start h-full w-full`}>
+                <div className={`${regLoading ? 'hidden' : ''} flex flex-col justify-start items-start h-full w-full pb-24`}>
                     <TimelinePanel />
                 </div>
             </div>

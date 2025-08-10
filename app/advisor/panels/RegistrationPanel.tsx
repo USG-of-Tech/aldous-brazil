@@ -58,7 +58,7 @@ function RegistrationPanel({creatingRegistration, setCreatingRegistration, setRe
                         with the new website layout. We have provided numerous video and text-based guides on all the key functionality that you and your 
                         delegates need to understand for the upcoming conference!
                     </p>
-                    <div className="flex flex-row gap-4 mt-8 w-full justify-between">
+                    <div className="flex flex-row flex-wrap gap-4 mt-8 w-full justify-between">
                         <div className="flex flex-row gap-2 items-center">
                             <input readOnly type="checkbox" checked={registration.delegate_fees_paid} className="checkbox checkbox-primary" />
                             <label className="label text-lg">Delegate Fees Paid</label>
