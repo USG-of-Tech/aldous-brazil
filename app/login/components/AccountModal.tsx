@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AccountInfo from "./AccountInfo";
 import SchoolInfo from "./SchoolInfo";
-import { currentConference } from "../utils/supabaseHelpers";
+import { currentConference } from "../../utils/supabaseHelpers";
 
 interface AccountProps {
     registering: boolean,

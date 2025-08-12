@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { signUpAdvisor } from "../utils/supabaseHelpers";
+import { signUpAdvisor } from "../../utils/supabaseHelpers";
 
 interface AccountProps {
     updatePage: Function,

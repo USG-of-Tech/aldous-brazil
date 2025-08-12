@@ -121,7 +121,7 @@ export interface SchoolProps {
 export async function createSchool(schoolProps: SchoolProps) {
     const array = new Int32Array(1);
     crypto.getRandomValues(array);
-    const schoolId = array[0]
+    const schoolId = array[0];
 
     schoolProps.id = schoolId;
     const { error } = await supabase.from('School')
@@ -167,6 +167,33 @@ export async function getSchool() {
 
 export async function updateSchool(schoolProps: SchoolProps) {
     const user = await getSupabaseUser();
+
+    if (user.school_id == null) {
+        // If the school wasn't created properly, configure a new id and link the school
+        const array = new Int32Array(1);
+        crypto.getRandomValues(array);
+        const schoolId = array[0]
+        // Upset School
+        const { error } = await supabase.from('School')
+            .upsert({...schoolProps, "id": schoolId});
+        
+        if (error) {
+            console.error(error);
+            return false;
+        }
+
+        // Update User
+        const { error: userError } = await supabase.from('Users')
+            .update({ school_id: schoolId })
+            .eq('id', user.id);
+
+        if (userError) {
+            console.error(userError);
+            return false;
+        }
+
+        return true;
+    }
 
     const { error } = await supabase.from('School')
         .upsert({...schoolProps, "id": user.school_id})
@@ -219,10 +246,10 @@ export async function getSupabaseUser() {
     const { data, error } = await supabase.from('Users')
         .select()
         .eq('id', response.data.user.id)
-        .single()
+        .single();
 
     if (error) {
-        console.error(error);
+        return null;
     }
 
     return data;

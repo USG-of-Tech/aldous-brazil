@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { createSchool, linkSchool } from "../utils/supabaseHelpers";
+import { createSchool, linkSchool } from "../../utils/supabaseHelpers";
 
 interface SchoolInfoProps {
     updatePage: Function,

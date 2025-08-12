@@ -46,23 +46,14 @@ function AdvisorView() {
                             <li onClick={() => setPageNum(3)}><a>Website Guide</a></li>
                         </ul>
                     </div>
-                    <h1 className="text-3xl p-2">Berkeley Model United Nations</h1>
-                    {/*<Image
-                        src="/BMUN Circle Logo Cream.png"
-                        alt="BMUN Logo"
-                        height={48}
-                        width={500}
-                        style={{ height: '48px', width: 'auto' }}
-                        className="block lg:hidden"
-                        priority
-                    />
-                    <h1 className="text-3xl p-2 hidden lg:block">Berkeley Model United Nations</h1>*/}
+                    <h1 className="text-3xl p-2 hover:cursor-pointer" onClick={() => setPageNum(0)}>Berkeley Model United Nations</h1>
                 </div>
                 <div className="navbar-center hidden lg:block">
                     <ul className="menu menu-horizontal px-1 text-lg">
                         <li onClick={() => {setPageNum(0)}}><a>Registration</a></li>
                         <li onClick={() => {setPageNum(2)}}><a>Assignments</a></li>
                         <li onClick={() => {setPageNum(3)}}><a>Website Guide</a></li>
+                        <li><a href="https://www.bmun.org/" target="_blank">Information</a></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

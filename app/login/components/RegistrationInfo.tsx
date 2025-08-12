@@ -1,4 +1,4 @@
-import { currentConference } from "../utils/supabaseHelpers";
+import { currentConference } from "../../utils/supabaseHelpers";
 
 interface RegProps {
     first_name: string,

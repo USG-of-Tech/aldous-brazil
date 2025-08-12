@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from "react";
-import { currentConference, loginUser } from "../utils/supabaseHelpers";
+import { currentConference, loginUser } from "../../utils/supabaseHelpers";
 import { useRouter } from 'next/navigation';
-import { autoRedirect } from "../utils/generalHelper";
+import { autoRedirect } from "../../utils/generalHelper";
 
 interface LoginProps {
     setRegistering: Function,

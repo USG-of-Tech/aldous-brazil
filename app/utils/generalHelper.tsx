@@ -5,7 +5,7 @@ export async function autoRedirect(router: AppRouterInstance) {
     try {
         const user_struct = await getSupabaseUser();
         if (user_struct == null) {
-            router.push('/');
+            router.push('/login');
             return;
         }
         switch(user_struct.user_type) {
@@ -24,7 +24,7 @@ export async function autoRedirect(router: AppRouterInstance) {
             default:
     }} catch (error) {
         console.error(error);
-        router.push('/');
+        router.push('/login');
     }
 }
 
