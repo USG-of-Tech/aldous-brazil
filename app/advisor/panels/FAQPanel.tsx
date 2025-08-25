@@ -1,15 +1,15 @@
 const faqs = [
     {
         question: "How do I reset my password?",
-        answer: "Click the link under School Profile to get an email to reset your password."
+        answer: "Click here"
     },
     {
         question: "When can I register for conference?",
-        answer: "The registration button will be made active on the day that registration opens. For the exact date, navigate to the timeline on the right side of the page"
+        answer: "The registration button will be made active on the day that registration opens. For the exact date, navigate to the timeline on the right side of the page."
     },
     {
         question: "How do the fees work?",
-        answer: "We charge a flat, nonrefundable 60 USD school fee for each registration. Each delegate requires a registration fee of 95 USD."
+        answer: "We charge a flat, nonrefundable 60 USD school fee for each registration, and each delegate requires a registration fee of 95 USD."
     },
     {
         question: "What do I do if I want to add or drop delegates?",
@@ -25,9 +25,9 @@ function FAQPanel() {
     return (
         <div className="flex flex-col w-full">
             <h2 className="text-7xl">FAQs</h2>
-            <div className="text-xl">
+            <div className="join join-vertical bg-black text-xl rounded-xl">
                 {faqs.map((faq, index) => (
-                    <div className="collapse bg-secondary border border-base-300" key={index}>
+                    <div className="collapse collapse-arrow join-item bg-base-300 border border-base-100" key={index}>
                         {index == 0 ? 
                         <input type="radio" name="my-accordion-1" defaultChecked />
                         : <input type="radio" name="my-accordion-1" />}

@@ -30,9 +30,9 @@ function AdvisorView() {
     }
 
     return (
-        <div className="flex flex-col gap-5 bg-base-300">
+        <div className="flex flex-col gap-5 bg-black">
             <div className="h-[68px] w-full" /> {/* Hardcoded placeholder. TODO: Make it dynamic */}
-            <div className="fixed navbar z-20 bg-base-100 shadow-lg">
+            <div className="fixed navbar z-20 bg-base-300 shadow-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -86,9 +86,9 @@ function AdvisorView() {
                 </div>
             </div>
             <div className="w-full h-full flex flex-row justify-center items-center mb-2">
-                <div className="max-w-[1400px] lg:w-10/12 lg:h-10/12 bg-base-300 rounded-md p-4 lg:overflow-scroll">
+                <div className="max-w-[1400px] lg:w-10/12 lg:h-10/12 bg-black rounded-md p-4 lg:overflow-scroll">
                     <div className={pageNum != 0 ? 'hidden' : ''}>
-                        <RegistrationView />
+                        <RegistrationView setPageNum={setPageNum} />
                     </div>
                     <div className={pageNum != 2 ? 'hidden' : ''}>
                         <AssignmentView />

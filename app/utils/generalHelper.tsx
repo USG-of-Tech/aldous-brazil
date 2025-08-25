@@ -34,7 +34,7 @@ export function isValidEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
-export function isValidAccountInfo(accountInfo: AccountProps, confPassword: String) {
+export function isValidAccountInfo(accountInfo: AccountProps, confPassword: string) {
     if (!Object.values(accountInfo).every(value => value !== "")) {
         return "Missing account information";
     } else if (!isValidEmail(accountInfo.email)) {

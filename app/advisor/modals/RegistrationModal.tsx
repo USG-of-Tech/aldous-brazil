@@ -115,14 +115,14 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                         className="btn btn-primary mt-4 text-xl" 
                         onClick={async () => await handleSubmission()}
                         disabled={numBeginner == 0 && numIntermediate == 0 && numAdvanced == 0
-                            || numBeginner + numIntermediate + numAdvanced > 40
+                            || numBeginner + numIntermediate + numAdvanced > 50
                         }
                     >
                         {loading ? <span className="loading loading-spinner"></span> : <></>}
                         Register for BMUN
                     </button>
-                    {numBeginner + numIntermediate + numAdvanced > 40 ? 
-                        <div className="text-md text-red-500">Each school is limited to 40 delegates</div>
+                    {numBeginner + numIntermediate + numAdvanced > 50 ? 
+                        <div className="text-md text-red-500">Each school is limited to 50 delegates</div>
                         : <></>
                     }
                 </fieldset>

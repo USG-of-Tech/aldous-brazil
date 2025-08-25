@@ -1,15 +1,15 @@
 'use client';
 
 import { currentConference, getRegistration, RegistrationProps } from "@/app/utils/supabaseHelpers";
-import { openingSpiel } from "../OpeningSpiel";
 import { useEffect, useState } from "react";
 
 interface RegistrationPanelProps {
     setCreatingRegistration: Function,
-    setRegLoading: Function
+    setRegLoading: Function,
+    setPageNum: Function
 }
 
-function RegistrationPanel({setCreatingRegistration, setRegLoading}: RegistrationPanelProps) {
+function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}: RegistrationPanelProps) {
     const [registered, setRegistered] = useState(false);
     const [registration, setRegistration] = useState<RegistrationProps>();
 
@@ -37,25 +37,25 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading}: Registratio
                     <div className="stats py-2">
                         <div className="stat">
                             <div className="stat-title text-base">Total Registered</div>
-                            <div className="stat-value text-primary">{registration.num_beginner_delegates + registration.num_intermediate_delegates + registration.num_advanced_delegates}</div>
+                            <div className="stat-value text-info">{registration.num_beginner_delegates + registration.num_intermediate_delegates + registration.num_advanced_delegates}</div>
                         </div>
                         <div className="stat">
                             <div className="stat-title text-base">Beginner</div>
-                            <div className="stat-value text-secondary">{registration.num_beginner_delegates}</div>
+                            <div className="stat-value text-primary">{registration.num_beginner_delegates}</div>
                         </div>
                         <div className="stat">
                             <div className="stat-title text-base">Intermediate</div>
-                            <div className="stat-value text-secondary">{registration.num_intermediate_delegates}</div>
+                            <div className="stat-value text-primary">{registration.num_intermediate_delegates}</div>
                         </div>
                         <div className="stat">
                             <div className="stat-title text-base">Advanced</div>
-                            <div className="stat-value text-secondary">{registration.num_advanced_delegates}</div>
+                            <div className="stat-value text-primary">{registration.num_advanced_delegates}</div>
                         </div>
                     </div>
                     <p>
-                        Please take the time to review the <span className="text-primary">Website Guide</span> to familiarize yourself
-                        with the new website layout. We have provided numerous video and text-based guides on all the key functionality that you and your 
-                        delegates need to understand for the upcoming conference!
+                        Please take the time to review the <span className="text-primary hover:cursor-pointer"><b onClick={() => setPageNum(3)}>Website Guide</b></span> to familiarize yourself
+                        with the layout and features of <span className="text-primary font-bold">Aldous</span>. We have provided numerous tutorials on all the key functionality that you and your 
+                        delegates need to understand for the upcoming conference! See you in the Spring.
                     </p>
                     <div className="flex flex-row flex-wrap gap-4 mt-8 w-full justify-between">
                         <div className="flex flex-row gap-2 items-center">
@@ -71,11 +71,19 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading}: Registratio
                             <label className="label text-lg">Waitlisted</label>
                         </div>
                     </div>
-                    <div className="divider text-primary"></div>
                 </div>
                 :
                 <div className="flex flex-col w-full h-full justify-start">
-                    {openingSpiel}
+                    <p className="text-xl">
+                        It looks like you have <b>not yet registered for BMUN {currentConference.session}. </b>
+                        In order to do so, please click on the button below to fill out our registration form.
+                        If you need some guidance on the process please navigate to our <span className="text-primary hover:cursor-pointer"><b onClick={() => setPageNum(3)}>Website Guide</b></span>.
+                        We have provided an array of tutorials for each feature of Aldous and the registration process as a whole.
+                        <br/> <br/>
+                        When registering, ensure that your delegation numbers are accurate. 
+                        In order to change any information after submitting the form, an advisor will have to email <span className="font-bold text-primary">info@bmun.org</span> and <span className="font-bold text-primary">tech@bmun.org</span>.
+                        Please familiarize yourself with our delegate fees and refund deadlines prior to registering.
+                    </p>
                     <button className="btn btn-xl text-xl btn-primary mt-4"
                         disabled={!currentConference.open_reg}
                         onClick={() => setCreatingRegistration(true)}>

@@ -40,7 +40,7 @@ function AssignmentView() {
     }
 
     return (
-        <div>
+        <div className="h-full flex flex-col justify-start">
             <DelegateSubmission 
                 countryName={countryName} 
                 committeeName={committeeName} 
@@ -49,14 +49,14 @@ function AssignmentView() {
                 assignmentDelegates={assignmentDelegates}
                 submittingDelegates={submittingDelegates} 
                 setSubmittingDelegates={setSubmittingDelegates} />
-            <div className="grid grid-cols-1 gap-2 mb-4 h-full">
+            <div className="flex flex-col gap-2 mb-4 h-full">
                 <div className="flex flex-row gap-6 mr-2 justify-between items-end">
                     <div className="text-2xl">
                         Assignments are <div className="badge badge-error badge-xl text-white">Not Released</div>
                     </div>
                 </div>
                 {!assignmentsUploaded ?
-                    <div className="flex flex-col justify-center items-center text-3xl text-center p-4 gap-4 border-2 rounded-xl text-primary border-primary">
+                    <div className="flex flex-col justify-center items-center text-3xl text-center p-4 gap-4 border-2 rounded-xl text-primary border-primary h-full">
                         <Image src="/BMUN Circle Logo Blue.png" alt="BMUN Logo" width={200} height={200}/>
                         No assignments have been posted. Please check back later.
                     </div>

@@ -26,7 +26,7 @@ export default  function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="aldous" className="bg-base-300">
+    <html lang="en" data-theme="aldous" className="bg-black">
       <body
         className={`${bebasNeue.variable} ${roboto.variable} antialiased`}
       >

@@ -50,7 +50,7 @@ function SchoolForm({setSchoolLoading}: SchoolFormProps) {
     );
 
     return (
-        <fieldset className="w-full flex flex-col gap-1 p-2 bg-base-100 shadow-2xl rounded-sm">
+        <fieldset className="w-full flex flex-col gap-1 p-2 bg-black shadow-2xl rounded-sm">
             <h3 className="text-7xl">Profile</h3>
             <div>
                 <div className="flex flex-row items-center justify-between gap-4">
@@ -219,7 +219,7 @@ function SchoolForm({setSchoolLoading}: SchoolFormProps) {
                 </div>
             </div>
             <button 
-                className="btn btn-primary mt-2 text-lg"
+                className="btn btn-primary mt-4 text-lg"
                 disabled={!canUpdate()}
                 onClick={handleSubmission}
             >

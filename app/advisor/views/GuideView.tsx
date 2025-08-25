@@ -52,11 +52,11 @@ function GuideView() {
 
     return (
         <div className="flex flex-col gap-4 w-full">
-            <div className="flex flex-col w-full gap-4 border-base-300 border-4 rounded-lg mb-4">
+            <div className="flex flex-col w-full gap-4 border-black border-4 rounded-lg mb-4">
                 {/* Help icon */}
                 <div className="flex flex-col gap-4 justify-end items-end text-right fixed z-50 bottom-10 right-10 text-primary">
                     <div 
-                        className={`${viewShortcuts ? '' : 'translate-x-full opacity-0'} flex flex-col transition duration-300 ease-in-out gap-2 bg-base-300 p-2 rounded-md border-base-100 border-2`}>
+                        className={`${viewShortcuts ? '' : 'translate-x-full opacity-0'} flex flex-col transition duration-300 ease-in-out gap-2 bg-base-300 p-2 rounded-md border-black border-2`}>
                     {guides.map((guide, index) => (
                         <h5 
                             className="text-4xl hover:cursor-pointer"

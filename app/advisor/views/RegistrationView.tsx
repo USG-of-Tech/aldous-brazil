@@ -7,7 +7,11 @@ import TimelinePanel from "../panels/TimelinePanel";
 import FAQPanel from "../panels/FAQPanel";
 import OpeningSkeleton from "../skeletons/OpeningSkeleton";
 
-function RegistrationView() {
+interface RegistrationViewProps {
+    setPageNum: Function
+}
+
+function RegistrationView({setPageNum}: RegistrationViewProps) {
     const [regLoading, setRegLoading] = useState(true);
     const [creatingRegistration, setCreatingRegistration] = useState(false);
     const [_, setSchoolLoading] = useState(false);
@@ -20,8 +24,11 @@ function RegistrationView() {
                 <div className={`${regLoading ? 'hidden' : ''} flex flex-col gap-10 justify-start items-start h-full w-full`}>
                     <RegistrationPanel
                         setCreatingRegistration={setCreatingRegistration} 
-                        setRegLoading={setRegLoading} />
+                        setRegLoading={setRegLoading}
+                        setPageNum={setPageNum} />
+                    <div className="divider m-0"></div>
                     <SchoolForm setSchoolLoading={setSchoolLoading} />
+                    <div className="divider m-0"></div>
                     <FAQPanel />
                 </div>
                 <div className={`${regLoading ? 'hidden' : ''} flex flex-col justify-start items-start h-full w-full pb-24`}>
