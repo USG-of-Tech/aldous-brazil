@@ -52,8 +52,30 @@ function AdvisorView() {
                     <ul className="menu menu-horizontal px-1 text-lg">
                         <li onClick={() => {setPageNum(0)}}><a>Registration</a></li>
                         <li onClick={() => {setPageNum(2)}}><a>Assignments</a></li>
-                        <li onClick={() => {setPageNum(3)}}><a>Website Guide</a></li>
-                        <li><a href="https://www.bmun.org/" target="_blank">Information</a></li>
+                        <li onClick={() => {setPageNum(3)}}><a>Guide</a></li>
+                        <li>
+                            <a
+                                href="https://www.bmun.org/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1"
+                            >
+                                Main Website
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" strokeWidth="2"
+                                strokeLinecap="round" strokeLinejoin="round"
+                                aria-hidden="true" focusable="false"
+                                className="inline-block"
+                                >
+                                <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <path d="M15 3h6v6"/>
+                                <path d="M10 14L21 3"/>
+                                </svg>
+                                <span className="sr-only">(opens in a new tab)</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -64,7 +86,7 @@ function AdvisorView() {
                 </div>
             </div>
             <div className="w-full h-full flex flex-row justify-center items-center mb-2">
-                <div className="max-w-screen lg:w-10/12 lg:h-10/12 bg-base-300 rounded-md p-4 lg:overflow-scroll">
+                <div className="max-w-[1400px] lg:w-10/12 lg:h-10/12 bg-base-300 rounded-md p-4 lg:overflow-scroll">
                     <div className={pageNum != 0 ? 'hidden' : ''}>
                         <RegistrationView />
                     </div>

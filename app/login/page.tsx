@@ -1,15 +1,11 @@
 'use client';
 
-import LoginModal from "./components/LoginModal";
+import LoginModal from "./forms/LoginForm";
 import Image from 'next/image';
 import { useEffect, useState } from "react";
-import AccountModal from "./components/AccountModal";
 import { useRouter } from 'next/navigation';
 import { autoRedirect } from "../utils/generalHelper";
-
-/*
-  Main page for login, registration, and FAQs.
-*/
+import AccountRegistrationForm from "./modals/AccountRegistrationModal";
 
 export default function Home() {
   const [registering, setRegistering] = useState(false);
@@ -25,7 +21,7 @@ export default function Home() {
     // <div className="bg-linear-65 from-black to-[#165a7b] bg-base-200">
     <div className="bg-linear-65 from-black to-[#165a7b] bg-base-200">
       <div className="absolute">
-        <AccountModal registering={registering} setRegistering={setRegistering} />
+        <AccountRegistrationForm registering={registering} setRegistering={setRegistering}/>
       </div>
       <div className="w-screen h-screen grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-row items-center justify-center">

@@ -141,7 +141,10 @@ export async function linkSchool(userId: string, schoolId: number) {
 
     if (error) {
         console.error(error);
+        return error;
     }
+
+    return true;
 }
 
 export async function getSchool() {

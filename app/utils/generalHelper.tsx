@@ -1,5 +1,6 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { getSupabaseUser } from "./supabaseHelpers";
+import { getSupabaseUser, SchoolProps } from "./supabaseHelpers";
+import { AccountProps } from "../login/modals/AccountRegistrationModal";
 
 export async function autoRedirect(router: AppRouterInstance) {
     try {
@@ -26,6 +27,60 @@ export async function autoRedirect(router: AppRouterInstance) {
         console.error(error);
         router.push('/login');
     }
+}
+
+export function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+export function isValidAccountInfo(accountInfo: AccountProps, confPassword: String) {
+    if (!Object.values(accountInfo).every(value => value !== "")) {
+        return "Missing account information";
+    } else if (!isValidEmail(accountInfo.email)) {
+        return "Invalid account email";
+    } else if (accountInfo.password.length < 8) {
+        return "Invalid Password"
+    } else if (accountInfo.password != confPassword) {
+        return "Passwords do not match"
+    }
+    return "";
+}
+
+export function isValidSchoolInfo(schoolInfo: SchoolProps): string {
+    // Required string fields (excluding optional ones)
+    const mandatoryFields: (keyof SchoolProps)[] = [
+        "name",
+        "address",
+        "city",
+        "state",
+        "zip_code",
+        "country",
+        "primary_name",
+        "primary_email",
+        "primary_phone",
+        "delegation_type"
+    ];
+
+    // Check that required fields are not empty
+    for (const field of mandatoryFields) {
+        const value = schoolInfo[field];
+        if (typeof value === "string" && value.trim() === "") {
+            return "Missing school information";
+        }
+    }
+
+    // Validate primary email
+    if (!isValidEmail(schoolInfo.primary_email)) {
+        return "Invalid advisor email";
+    }
+
+    // Check delegation type is not placeholder
+    if (schoolInfo.delegation_type === "Delegation Type") {
+        return "Please select a valid delegation type";
+    }
+
+    return "";
 }
 
 export const defaultConferenceData = {

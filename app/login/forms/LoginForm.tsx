@@ -9,7 +9,7 @@ interface LoginProps {
     setRegistering: Function,
 }
 
-function LoginModal({setRegistering}: LoginProps) {
+function LoginForm({setRegistering}: LoginProps) {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState(false);
     const [password, setPassword] = useState('');
@@ -72,4 +72,4 @@ function LoginModal({setRegistering}: LoginProps) {
     )
 }
 
-export default LoginModal;
+export default LoginForm;

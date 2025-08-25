@@ -49,7 +49,7 @@ function AssignmentView() {
                 assignmentDelegates={assignmentDelegates}
                 submittingDelegates={submittingDelegates} 
                 setSubmittingDelegates={setSubmittingDelegates} />
-            <div className="grid grid-cols-1 gap-2 mb-4">
+            <div className="grid grid-cols-1 gap-2 mb-4 h-full">
                 <div className="flex flex-row gap-6 mr-2 justify-between items-end">
                     <div className="text-2xl">
                         Assignments are <div className="badge badge-error badge-xl text-white">Not Released</div>
