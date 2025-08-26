@@ -50,7 +50,7 @@ function SchoolForm({setSchoolLoading}: SchoolFormProps) {
     );
 
     return (
-        <fieldset className="w-full flex flex-col gap-1 p-2 bg-black shadow-2xl rounded-sm">
+        <fieldset className="w-full flex flex-col gap-1 p-4 bg-black border-2 border-primary rounded-2xl">
             <h3 className="text-7xl">Profile</h3>
             <div>
                 <div className="flex flex-row items-center justify-between gap-4">

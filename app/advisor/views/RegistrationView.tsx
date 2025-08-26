@@ -26,9 +26,7 @@ function RegistrationView({setPageNum}: RegistrationViewProps) {
                         setCreatingRegistration={setCreatingRegistration} 
                         setRegLoading={setRegLoading}
                         setPageNum={setPageNum} />
-                    <div className="divider m-0"></div>
                     <SchoolForm setSchoolLoading={setSchoolLoading} />
-                    <div className="divider m-0"></div>
                     <FAQPanel />
                 </div>
                 <div className={`${regLoading ? 'hidden' : ''} flex flex-col justify-start items-start h-full w-full pb-24`}>

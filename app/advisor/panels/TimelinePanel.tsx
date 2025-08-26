@@ -34,7 +34,7 @@ function TimelinePanel() {
   .sort((a, b) => a.date.getTime() - b.date.getTime());
 
   return (
-    <div className="w-full border-2 border-primary border-dotted rounded-xl p-6 overflow-scroll">
+    <div className="bg-black w-full border-2 border-primary rounded-2xl p-4 overflow-scroll">
         <h6 className="text-5xl text-center p-4 text-white">
             {(() => {
                 const startDateStr = currentConference?.start_date;

@@ -9,9 +9,9 @@ interface GuidePanelProps {
 
 function GuidePanel({ videoUrl, topicTitle, helpfulSnippet, invert }: GuidePanelProps) {
   return (
-    <div className={`flex flex-col ${invert ? "lg:flex-row-reverse" : "lg:flex-row"} gap-6 rounded-lg p-4 items-start w-full mx-auto`}>
+    <div className={`flex flex-col bg-black border-2 border-primary p-4 ${invert ? "lg:flex-row-reverse" : "lg:flex-row"} gap-6 rounded-lg p-4 items-start w-full mx-auto`}>
       {/* Video */}
-      <div className="w-full aspect-video rounded-lg border-2 border-primary">
+      <div className="w-full aspect-video rounded-lg border-2 border-base-300">
         <iframe
           className="w-full h-full rounded-lg"
           src={videoUrl}

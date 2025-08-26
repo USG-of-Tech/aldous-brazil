@@ -17,8 +17,6 @@ export default function Home() {
   })()}, [router])
 
   return (
-    // <div className="bg-linear-65 from-[#63bce8] to-white">
-    // <div className="bg-linear-65 from-black to-[#165a7b] bg-base-200">
     <div className="bg-linear-65 from-black to-[#165a7b] bg-base-200 h-screen w-screen" />
   );
 }

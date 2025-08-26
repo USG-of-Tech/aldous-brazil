@@ -23,7 +23,7 @@ const faqs = [
 
 function FAQPanel() {
     return (
-        <div className="flex flex-col w-full">
+        <div className="bg-black flex flex-col w-full p-4 border-2 border-primary rounded-2xl">
             <h2 className="text-7xl">FAQs</h2>
             <div className="join join-vertical bg-black text-xl rounded-xl">
                 {faqs.map((faq, index) => (

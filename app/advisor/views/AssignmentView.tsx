@@ -56,7 +56,7 @@ function AssignmentView() {
                     </div>
                 </div>
                 {!assignmentsUploaded ?
-                    <div className="flex flex-col justify-center items-center text-3xl text-center p-4 gap-4 border-2 rounded-xl text-primary border-primary h-full">
+                    <div className="flex flex-col bg-black min-h-[750px] justify-center items-center text-3xl text-center p-4 gap-4 border-2 rounded-xl text-primary border-primary h-full">
                         <Image src="/BMUN Circle Logo Blue.png" alt="BMUN Logo" width={200} height={200}/>
                         No assignments have been posted. Please check back later.
                     </div>

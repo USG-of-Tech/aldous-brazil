@@ -24,7 +24,7 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
     })()}, [setRegLoading]);
 
     return (
-        <div className="flex flex-col w-full p-2">
+        <div className="bg-black flex flex-col w-full p-4 border-2 border-primary rounded-2xl">
             <div className="flex flex-row justify-start">
                 <h2 className="text-7xl">Welcome to <span className="text-primary text-nowrap">BMUN {currentConference.session}</span>!</h2>
             </div>

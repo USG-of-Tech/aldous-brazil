@@ -52,11 +52,11 @@ function GuideView() {
 
     return (
         <div className="flex flex-col gap-4 w-full">
-            <div className="flex flex-col w-full gap-4 border-black border-4 rounded-lg mb-4">
+            <div className="flex flex-col w-full gap-4 rounded-lg mb-4">
                 {/* Help icon */}
                 <div className="flex flex-col gap-4 justify-end items-end text-right fixed z-50 bottom-10 right-10 text-primary">
                     <div 
-                        className={`${viewShortcuts ? '' : 'translate-x-full opacity-0'} flex flex-col transition duration-300 ease-in-out gap-2 bg-base-300 p-2 rounded-md border-black border-2`}>
+                        className={`${viewShortcuts ? '' : 'translate-x-full opacity-0'} flex flex-col transition duration-300 ease-in-out gap-2 bg-black p-2 rounded-md border-primary border-2`}>
                     {guides.map((guide, index) => (
                         <h5 
                             className="text-4xl hover:cursor-pointer"
@@ -68,7 +68,7 @@ function GuideView() {
                     </div>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-20 w-20 hover:cursor-pointer bg-base-300 rounded-full"
+                        className="h-20 w-20 hover:cursor-pointer bg-black rounded-full"
                         fill="none"
                         viewBox="0 0 24 24"
                         onClick={() => setViewShortcuts(!viewShortcuts)}
