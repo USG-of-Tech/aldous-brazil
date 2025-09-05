@@ -40,7 +40,7 @@ function AssignmentView() {
     }
 
     return (
-        <div className="h-full flex flex-col justify-start">
+        <div className="h-full flex flex-col justify-start p-4">
             <DelegateSubmission 
                 countryName={countryName} 
                 committeeName={committeeName} 

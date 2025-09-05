@@ -51,7 +51,7 @@ function GuideView() {
     };
 
     return (
-        <div className="flex flex-col gap-4 w-full">
+        <div className="flex flex-col gap-4 w-full p-4">
             <div className="flex flex-col w-full gap-4 rounded-lg mb-4">
                 {/* Help icon */}
                 <div className="flex flex-col gap-4 justify-end items-end text-right fixed z-50 bottom-10 right-10 text-primary">
