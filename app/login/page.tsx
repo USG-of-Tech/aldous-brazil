@@ -14,7 +14,7 @@ export default function Home() {
   // TODO: Clean this up, too slow
   useEffect(() => {(async () => {
     await autoRedirect(router);
-  })()}, [router])
+  })()}, [router]);
 
   return (
     <div className="bg-linear-65 from-black to-[#165a7b] bg-base-200">

@@ -9,21 +9,20 @@ export async function autoRedirect(router: AppRouterInstance) {
             router.push('/login');
             return;
         }
-        switch(user_struct.user_type) {
-            case 'advisor':
-                router.push('/advisor');
-                break;
-            case 'delegate':
-                router.push('/delegate');
-                break;
-            case 'chair':
-                router.push('/chair');
-                break;
-            case 'admin':
-                router.push('/admin');
-                break
-            default:
-    }} catch (error) {
+        router.push(`/${user_struct.user_type}`);
+    } catch (error) {
+        console.error(error);
+        router.push('/login');
+    }
+}
+
+export async function noLoginRedirect(router: AppRouterInstance) {
+    try {
+        const user_struct = await getSupabaseUser();
+        if (user_struct == null) {
+            router.push('/login');
+        }
+    } catch (error) {
         console.error(error);
         router.push('/login');
     }

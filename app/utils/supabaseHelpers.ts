@@ -234,7 +234,7 @@ export async function getUser() {
     const response = await supabase.auth.getUser();
     if (response.data.user == null) {
         console.error("User not signed in.");
-        return;
+        return null;
     }
     return response.data.user;
 }
@@ -595,3 +595,22 @@ export async function isRegOpen() {
 }
 
 export const registrationNumber = await getAmountRegistered();
+
+export async function resetPassword(password: string) {
+    const user = await getUser();
+
+    if (!user) {
+        console.error("User not logged in");
+    }
+    
+    const {data, error} = await supabase.auth.updateUser({
+        password: password
+    })
+
+    if (error) {
+        console.log(error);
+        return false;
+    }
+
+    return true;
+}

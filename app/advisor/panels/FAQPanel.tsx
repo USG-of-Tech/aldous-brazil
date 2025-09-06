@@ -1,8 +1,6 @@
+import { useRouter } from "next/navigation";
+
 const faqs = [
-    {
-        question: "How do I reset my password?",
-        answer: "Click here"
-    },
     {
         question: "When can I register for conference?",
         answer: "The registration button will be made active on the day that registration opens. For the exact date, navigate to the timeline on the right side of the page."
@@ -22,15 +20,20 @@ const faqs = [
 ]
 
 function FAQPanel() {
+    const router = useRouter();
+    
     return (
         <div className="bg-black flex flex-col w-full p-4 border-2 border-primary rounded-2xl">
             <h2 className="text-7xl">FAQs</h2>
             <div className="join join-vertical bg-black text-xl rounded-xl">
+                <div className="collapse collapse-arrow join-item bg-base-300 border border-base-100" key={-1}>
+                    <input type="radio" name="my-accordion-1" defaultChecked />
+                    <div className="collapse-title font-semibold">How do I reset my password?</div>
+                    <div className="collapse-content text-md hover:cursor-pointer text-primary font-bold" onClick={() => router.push('/reset-password')}>Click Here</div>
+                </div>
                 {faqs.map((faq, index) => (
                     <div className="collapse collapse-arrow join-item bg-base-300 border border-base-100" key={index}>
-                        {index == 0 ? 
-                        <input type="radio" name="my-accordion-1" defaultChecked />
-                        : <input type="radio" name="my-accordion-1" />}
+                        <input type="radio" name="my-accordion-1" />
                         <div className="collapse-title font-semibold">{faq.question}</div>
                         <div className="collapse-content text-md">{faq.answer}</div>
                     </div>
