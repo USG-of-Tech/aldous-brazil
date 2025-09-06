@@ -603,7 +603,7 @@ export async function resetPassword(password: string) {
         console.error("User not logged in");
     }
     
-    const {data, error} = await supabase.auth.updateUser({
+    const {data:_, error} = await supabase.auth.updateUser({
         password: password
     })
 
