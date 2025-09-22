@@ -12,7 +12,7 @@ function SchoolForm({school, setSchool, submissionError}: SchoolFormProps) {
         <fieldset className="flex flex-col gap-4">
             <div className="flex flex-row justify-between">
                 <h5 className="text-5xl">
-                    School Information
+                    School Information *
                 </h5>
                 <label className="label text-lg">
                     <input 
@@ -140,7 +140,7 @@ function SchoolForm({school, setSchool, submissionError}: SchoolFormProps) {
             </div>
             <div className="flex flex-row gap-2 items-end justify-between">
                 <h5 className="text-5xl">
-                    Primary Advisor
+                    Primary Advisor *
                 </h5>
                 <p className="mb-0.5">Must be 18 years or older</p>
             </div>

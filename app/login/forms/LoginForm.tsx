@@ -56,7 +56,7 @@ function LoginForm({setRegistering}: LoginProps) {
                 <label className="label">Password</label>
                 <div>
                     <input type="password" className={`input input-lg ${passwordError ? 'input-error' : ''}`} placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
-                    <p className="pt-1 text-primary hover:cursor-pointer w-fit">Forgot your password?</p>
+                    <p className="pt-1 text-primary w-fit">Forgot your password? Email tech@bmun.org</p>
                 </div>
 
                 {loginError ? <label className="label text-red-400">Username or password incorrect</label> : <></>}

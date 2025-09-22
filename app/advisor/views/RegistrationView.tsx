@@ -19,7 +19,7 @@ function RegistrationView({setPageNum}: RegistrationViewProps) {
     return (
         <div>
             <OpeningSkeleton regLoading={regLoading} />
-            <div className={`${regLoading ? 'hidden' : ''} flex flex-col gap-10 p-4 lg:gap-6 lg:p-0 lg:grid lg:order-last lg:grid-cols-2 h-full`}>
+            <div className={`${regLoading ? 'hidden' : ''} flex flex-col gap-10 p-4 lg:gap-8 lg:p-0 lg:grid lg:order-last lg:grid-cols-2 h-full`}>
                 <RegistrationModal creatingRegistration={creatingRegistration} setCreatingRegistration={setCreatingRegistration} />
                 <div className={`${regLoading ? 'hidden' : ''} flex flex-col gap-10 justify-start items-start h-full w-full`}>
                     <RegistrationPanel

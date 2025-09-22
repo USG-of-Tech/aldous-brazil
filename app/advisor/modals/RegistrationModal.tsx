@@ -43,9 +43,9 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
     if (creatingRegistration) {
         return (
             <div className="fixed z-50 inset-0 w-full h-full flex flex-row items-center justify-center">
-                <div className="absolute z-10 w-full h-full bg-black opacity-50" onClick={() => setCreatingRegistration(false)}></div>
-                <fieldset className="fieldset z-20 bg-base-200 border-base-300 rounded-box w-md border p-4 opacity-100">
-                    <h3 className="text-4xl">Register for BMUN {currentConference.session}</h3>
+                <div className="absolute z-10 w-full h-full bg-black opacity-60" onClick={() => setCreatingRegistration(false)}></div>
+                <fieldset className="fieldset z-20 bg-black border-primary rounded-box w-md border-2 p-4 opacity-100">
+                    <h3 className="text-5xl">Register for BMUN {currentConference.session}</h3>
                     <label className="label text-xl">Number of Beginner Delegates</label>
                     <input
                     type="text"
@@ -84,7 +84,7 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                     }}
                     />
 
-                    <label className="label text-xl">Number of Spanish Speaking Delegates</label>
+                    {/*<label className="label text-xl">Number of Spanish Speaking Delegates</label>
                     <input
                     type="text"
                     className="input input-lg w-full"
@@ -106,8 +106,8 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                         const num = cleaned === "" ? 0 : Number(cleaned);
                         setNumChinese(num);
                     }}
-                    />
-                    <label className="label text-xl">
+                    />*/}
+                    <label className="label text-xl mt-2">
                         <input type="checkbox" checked={onlinePayment} className="toggle toggle-primary" onChange={(_) => setOnlinePayment(!onlinePayment)} />
                         Pay Online
                     </label>

@@ -28,7 +28,6 @@ function AssignmentView() {
             setAssignmentsUploaded(false);
         }
         if (newDelegates != null) {
-            console.log(newDelegates);
             setDelegates(newDelegates);
         }
     })()}, []);

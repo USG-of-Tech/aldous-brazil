@@ -3,19 +3,19 @@ import { useRouter } from "next/navigation";
 const faqs = [
     {
         question: "When can I register for conference?",
-        answer: "The registration button will be made active on the day that registration opens. For the exact date, navigate to the timeline on the right side of the page."
+        answer: "The registration button will be made avaliable during open registration periods. For the exact dates, navigate to the timeline on the right side of the page."
     },
     {
         question: "How do the fees work?",
-        answer: "We charge a flat, nonrefundable 60 USD school fee for each registration, and each delegate requires a registration fee of 95 USD."
+        answer: "We charge a flat, nonrefundable 80 USD school fee for each delegation, and each delegate requires a registration fee of 95 USD."
     },
     {
         question: "What do I do if I want to add or drop delegates?",
-        answer: "To add or drop delegates from your registration, contact us at info@bmun.org and tech@bmun.org. We will provide you with a response within 5 business days."
+        answer: "To add or drop delegates from your registration, contact us at info@bmun.org and tech@bmun.org. We will provide you with a response within 5 business days. Delegations are currently limited to 50 spots, but we will provide an opportunity to add more after R1."
     },
     {
         question: "Will there be a waitlist this year?",
-        answer: "If we hit our registration cap prior to the end of any registration period we will automatically transition to the waitlist. The waitlist is on a first-come-first-serve basis with a strict cap on how many each school can register."
+        answer: "If we hit our registration cap prior to the end of any registration period we will automatically transition to the waitlist. The waitlist is on a first-come-first-serve basis with a strict cap on how many each school can register. More info to follow."
     }
 ]
 

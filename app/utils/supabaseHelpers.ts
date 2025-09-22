@@ -590,11 +590,54 @@ export async function getAmountRegistered() {
     }
 }
 
-export async function isRegOpen() {
-
-}
-
 export const registrationNumber = await getAmountRegistered();
+
+const regCaps = [1200, 1900, 1900, 1900]
+
+export async function isRegOpen() {
+    return registrationNumber <= regCaps[0] && currentConference.open_reg;
+    /*console.log("Hey");
+
+    const currentConference = await getCurrentConference();
+
+    const roundOneStart = new Date(currentConference.reg_open);
+    const roundOneEnd = new Date(currentConference.round_one_end);
+    const roundTwoStart = new Date(roundOneEnd.getDate() + 3);
+    const roundTwoEnd = new Date(currentConference.round_two_end);
+    const regEnd = new Date(currentConference.reg_close);
+
+    
+    const currentDate = new Date();
+
+    if (!currentConference) {
+        console.error("No Conference found.");
+        return null;
+    }
+
+    // Override and Date Check
+    if (currentDate < roundOneStart ||
+        currentDate > regEnd) {
+        console.log(1);
+        return false;
+    }
+    // Round 1 Check
+    console.log(currentDate);
+    console.log(roundOneStart);
+    if (currentDate < roundOneEnd && registrationNumber >= regCaps[0]) {
+        console.log(2);
+        return false
+    }
+    // Round 2 Check
+    if (currentDate > roundTwoStart &&
+        currentDate < roundTwoEnd &&
+        registrationNumber >= regCaps[1]) {
+        console.log(3);
+        return false;
+    }
+
+    console.log(4);
+    return true;*/
+}
 
 export async function resetPassword(password: string) {
     const user = await getUser();
@@ -613,4 +656,15 @@ export async function resetPassword(password: string) {
     }
 
     return true;
+}
+
+export interface rubric {
+    topic_1_background: number,
+    topic_1_solutions: number,
+    topic_1_questions: number,
+    topic_1_discrection: number,
+    topic_2_background: number,
+    topic_2_solutions: number,
+    topic_2_questions: number,
+    topic_2_discrection: number
 }

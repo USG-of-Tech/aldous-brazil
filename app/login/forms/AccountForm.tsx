@@ -15,7 +15,7 @@ function AccountForm({accountInfo, setAccountInfo, confPassword, setConfPassword
     return (
         <fieldset className="flex flex-col gap-4">
             <h5 className="text-5xl">
-                Account Information
+                Account Information *
             </h5>
             <div className="grid grid-cols-3 gap-2">
                 <div className="flex flex-col">

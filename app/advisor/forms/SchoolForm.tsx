@@ -224,7 +224,7 @@ function SchoolForm({setSchoolLoading}: SchoolFormProps) {
                 onClick={handleSubmission}
             >
                 {loading ? <span className="loading loading-spinner"></span> : <></>}
-                Update School Information
+                Update Profile
             </button>
         </fieldset>
     )

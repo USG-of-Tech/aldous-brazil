@@ -19,7 +19,7 @@ function AdvisorView() {
 
     return (
         <div className="flex flex-col gap-5">
-            <div className="h-[68px] w-full" /> {/* Hardcoded placeholder. TODO: Make it dynamic */}
+            <div className="h-18 w-full" /> {/* Hardcoded placeholder. TODO: Make it dynamic */}
             <NavBar setPageNum={setPageNum}/>
             <div className="w-full h-full flex flex-row justify-center items-center mb-2">
                 <div className="max-w-12/12 sm:max-w-[1400px] lg:w-10/12 lg:h-10/12 rounded-md sm:p-4 lg:overflow-scroll">

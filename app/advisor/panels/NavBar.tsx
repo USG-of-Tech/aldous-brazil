@@ -4,6 +4,8 @@ import { logoutUser } from "@/app/utils/supabaseHelpers";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import Image from 'next/image';
+
 interface NavBarProps {
     setPageNum: Function
 }
@@ -61,18 +63,39 @@ function NavBar({setPageNum}: NavBarProps) {
                             </li>
                         </ul>
                     </div>
-                    <h1 className="hidden md:block text-3xl p-2 hover:cursor-pointer" onClick={() => setPageNum(0)}>
-                        Berkeley Model United Nations
+                    <h1 className="hidden md:flex flex-row items-center gap-2 text-3xl p-2 hover:cursor-pointer" onClick={() => setPageNum(0)}>
+                        <Image src="/BMUN Logo Blue.png" alt="BMUN Logo" width={150} height={35} />
                     </h1>
                     <h1 className="md:hidden text-3xl p-2 hover:cursor-pointer" onClick={() => setPageNum(0)}>
-                        BMUN
+                        <Image src="/BMUN Logo Blue.png" alt="BMUN Logo" width={150} height={35} />
                     </h1>
                 </div>
                 <div className="navbar-center hidden lg:block">
                     <ul className="menu menu-horizontal px-1 text-lg text-white font-bold">
-                        <li onClick={() => {setPageNum(0)}}><a>Registration</a></li>
-                        <li onClick={() => {setPageNum(2)}}><a>Assignments</a></li>
-                        <li onClick={() => {setPageNum(3)}}><a>Guide</a></li>
+                        <li onClick={() => {
+                            setPageNum(0); 
+                            window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth'
+                            });
+                            }}><a>Registration</a></li>
+                        <li onClick={() => {
+                            setPageNum(2); 
+                            window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth'
+                            });
+                            }}><a>Assignments</a></li>
+                        <li onClick={() => {
+                            setPageNum(3); 
+                            window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth'
+                            });
+                            }}><a>Guide</a></li>
                         <li>
                             <a
                                 href="https://www.bmun.org/"

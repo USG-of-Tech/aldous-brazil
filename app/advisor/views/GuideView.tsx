@@ -8,9 +8,30 @@ const guides = [
     {
         videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
         topicTitle: "How to officially register",
-        helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
+        helpfulSnippet: `
+        Navigate to your home dashboard by either clicking the logo in the top 
+        left corner or the "Registration" tab in the navigation bar. Then, in the top left 
+        card, click "Register Now", fill out the associated information, and 
+        click "Register for BMUN". If all went well, you should see your confirmed 
+        registration numbers in the top left card, and you will receive an invoice 
+        within 5 business days. In order to register, it has to be during a 
+        registration period outlined in the registration guide, and in the timeline 
+        located in the "Registration" tab.
+        `
     },
     {
+        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
+        topicTitle: "How to update my profile",
+        helpfulSnippet: `
+        Your profile is divided into three sections: school information, primary
+        advisor, and secondary advisor. You can edit all three in the "Profile" card
+        on your registration page. Simply update the information and select "Update Profile".
+        When updating your profile, keep in mind that your primary advisor must be 18 years 
+        or older, at least one advisor must be present on campus at all times, and the 
+        school information will be used as your mailing address for invoicing. 
+        `
+    },
+    /*{
         videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
         topicTitle: "How to delegate assignments",
         helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
@@ -24,22 +45,7 @@ const guides = [
         videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
         topicTitle: "How to request more spots",
         helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
-    },
-    {
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
-        topicTitle: "How to join the waitlist",
-        helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
-    },
-    {
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
-        topicTitle: "How to not join UCBMUN",
-        helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
-    },
-    {
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
-        topicTitle: "I can't think of another one",
-        helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
-    },
+    },*/
 ]
 
 function GuideView() {

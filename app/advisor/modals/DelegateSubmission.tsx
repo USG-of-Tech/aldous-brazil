@@ -55,7 +55,6 @@ function DelegateSubmission({countryName,
     useEffect(() => {(async () => {
         try {
             // Flush out old info
-            console.log(assignmentDelegates);
             if (assignmentDelegates.length == 0) {
                 setPrimaryFirstName("");
                 setPrimaryLastName("");
