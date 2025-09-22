@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import { autoRedirect } from "../utils/generalHelper";
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+// import { autoRedirect } from "../utils/generalHelper";
+// import { useRouter } from 'next/navigation';
 
 import DashboardView from './views/DashboardView';
 import PositionPaperView from "./views/PostionPaperView";
@@ -10,7 +10,7 @@ import NavBar from "../advisor/panels/NavBar";
 
 function ChairView() {
     const [pageNum, setPageNum] = useState(0);
-    const router = useRouter();
+    // const router = useRouter();
 
     // TODO: Clean this up too slow rn
     // useEffect(() => {(async () => {

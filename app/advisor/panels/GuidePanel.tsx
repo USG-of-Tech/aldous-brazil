@@ -3,13 +3,13 @@ import React from "react";
 import Image from 'next/image';
 
 interface GuidePanelProps {
-  videoUrl: string,
+  // videoUrl: string,
   topicTitle: string,
   helpfulSnippet: string,
   invert: boolean
 }
 
-function GuidePanel({ videoUrl, topicTitle, helpfulSnippet, invert }: GuidePanelProps) {
+function GuidePanel({ topicTitle, helpfulSnippet, invert }: GuidePanelProps) {
   return (
     <div className={`flex flex-col bg-black border-2 border-primary p-4 ${invert ? "lg:flex-row-reverse" : "lg:flex-row"} gap-6 rounded-lg p-4 items-start w-full mx-auto`}>
       {/* Video */}

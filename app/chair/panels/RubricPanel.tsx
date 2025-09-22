@@ -1,11 +1,11 @@
 'use client';
 
-import { rubric } from "@/app/utils/supabaseHelpers";
+// import { rubric } from "@/app/utils/supabaseHelpers";
 import { useState } from "react";
 
 function RubricPanel() {
     const [topicA, setTopicA] = useState("");
-    const [topicB, setTopicB] = useState("");
+    // const [topicB, setTopicB] = useState("");
     const [useTopicB, setUseTopicB] = useState(true);
 
     return (

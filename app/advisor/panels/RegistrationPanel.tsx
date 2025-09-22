@@ -33,7 +33,7 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
             console.log(newRegOpen);
             setRegOpen(newRegOpen);
         } catch (e) {
-
+            console.error(e);
         }
     })()}, [])
 
@@ -92,7 +92,7 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
                         It looks like you have <b>not yet registered for BMUN {currentConference.session}. </b>
                         In order to do so, please click on the button below to fill out our registration form.
                         If you need some guidance on the process please navigate to our <span className="text-primary hover:cursor-pointer"><b onClick={() => setPageNum(3)}>Website Guide</b></span>.
-                        We have provided tutorials for the website's features and we will continue to update it as conference approaches.
+                        We have provided tutorials for the website&apos;s features and we will continue to update it as conference approaches.
                         <br/> <br/>
                         When registering, ensure that your delegation numbers are accurate. 
                         In order to change any information after submitting the form, an advisor will have to email <span className="font-bold text-primary">info@bmun.org</span> and <span className="font-bold text-primary">tech@bmun.org</span>.

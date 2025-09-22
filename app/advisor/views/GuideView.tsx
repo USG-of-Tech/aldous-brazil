@@ -91,7 +91,7 @@ function GuideView() {
                     <div key={index} id={`guide-panel-${index}`}>
                         {index != 0 ? <div className="divider" /> : <></>}
                         <GuidePanel
-                            videoUrl={guide.videoUrl}
+                            // videoUrl={guide.videoUrl}
                             topicTitle={guide.topicTitle}
                             helpfulSnippet={guide.helpfulSnippet}
                             invert={index % 2 === 1}

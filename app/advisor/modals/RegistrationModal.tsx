@@ -14,8 +14,8 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
     const [numBeginner, setNumBeginner] = useState(0);
     const [numIntermediate, setNumIntermediate] = useState(0);
     const [numAdvanced, setNumAdvanced] = useState(0);
-    const [numSpanish, setNumSpanish] = useState(0);
-    const [numChinese, setNumChinese] = useState(0);
+    // const [numSpanish, setNumSpanish] = useState(0);
+    // const [numChinese, setNumChinese] = useState(0);
     const [onlinePayment, setOnlinePayment] = useState(false);
 
     async function handleSubmission () {
@@ -25,8 +25,8 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration} : Reg
                 num_beginner_delegates: numBeginner,
                 num_intermediate_delegates: numIntermediate,
                 num_advanced_delegates: numAdvanced,
-                num_spanish_speaking_delegates: numSpanish,
-                num_chinese_speaking_delegates: numChinese,
+                num_spanish_speaking_delegates: 0,
+                num_chinese_speaking_delegates: 0,
                 delegate_fees_paid: 0,
                 registration_fee_paid: false,
                 is_waitlisted: false
