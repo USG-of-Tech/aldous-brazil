@@ -115,7 +115,8 @@ export interface SchoolProps {
     secondary_phone: string,
     primary_student: boolean,
     secondary_student: boolean,
-    delegation_type: string
+    delegation_type: string,
+    country_preferences?: string[]
 }
 
 export async function createSchool(schoolProps: SchoolProps) {

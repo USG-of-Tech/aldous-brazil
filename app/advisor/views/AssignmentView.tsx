@@ -4,6 +4,7 @@ import { AssignmentProps, DelegateProps, getDelegatesAsAdvisor, loadAssignments,
 import { useEffect, useState } from "react";
 import DelegateSubmission from "../modals/DelegateSubmission";
 import Image from 'next/image';
+import CountriesPanel from "../panels/CountriesPanel";
 
 function AssignmentView() {
     const [assignments, setAssignments] = useState<AssignmentProps[]>([]);
@@ -54,6 +55,7 @@ function AssignmentView() {
                         Assignments are <div className="badge badge-error badge-xl text-white">Not Released</div>
                     </div>
                 </div>
+                <CountriesPanel />
                 {!assignmentsUploaded ?
                     <div className="flex flex-col bg-black min-h-[750px] justify-center items-center text-3xl text-center p-4 gap-4 border-2 rounded-xl text-primary border-primary h-full">
                         <Image src="/BMUN Circle Logo Blue.png" alt="BMUN Logo" width={200} height={200}/>

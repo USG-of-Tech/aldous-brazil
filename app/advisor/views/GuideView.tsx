@@ -6,8 +6,8 @@ import GuidePanel from "../panels/GuidePanel";
 
 const guides = [
     {
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
         topicTitle: "How to officially register",
+        imgSrc: '/RegScreenshot.png',
         helpfulSnippet: `
         Navigate to your home dashboard by either clicking the logo in the top 
         left corner or the "Registration" tab in the navigation bar. Then, in the top left 
@@ -20,8 +20,8 @@ const guides = [
         `
     },
     {
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
         topicTitle: "How to update my profile",
+        imgSrc: '/ProfileInfo.png',
         helpfulSnippet: `
         Your profile is divided into three sections: school information, primary
         advisor, and secondary advisor. You can edit all three in the "Profile" card
@@ -31,21 +31,17 @@ const guides = [
         school information will be used as your mailing address for invoicing. 
         `
     },
-    /*{
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
-        topicTitle: "How to delegate assignments",
-        helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
-    },
     {
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
-        topicTitle: "How to reject assignments",
-        helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
+        topicTitle: "How to edit country preferences",
+        imgSrc: '/savePreferences.png',
+        helpfulSnippet: `
+        When delegating assignments, BMUN takes into account the country preferences submitted 
+        by each school. To select or update your preferences, go to the "Assignments" tab and 
+        locate the "Country Preferences" card at the top of the page. From there, you can choose 
+        up to 10 countries using the individual dropdown menus. Once you’ve made your selections, 
+        click "Save" to confirm your choices.
+        `
     },
-    {
-        videoUrl: "https://www.youtube.com/embed/7pl13eKv4Dw",
-        topicTitle: "How to request more spots",
-        helpfulSnippet: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa"
-    },*/
 ]
 
 function GuideView() {
@@ -91,8 +87,8 @@ function GuideView() {
                     <div key={index} id={`guide-panel-${index}`}>
                         {index != 0 ? <div className="divider" /> : <></>}
                         <GuidePanel
-                            // videoUrl={guide.videoUrl}
                             topicTitle={guide.topicTitle}
+                            imgSrc={guide.imgSrc}
                             helpfulSnippet={guide.helpfulSnippet}
                             invert={index % 2 === 1}
                         />
