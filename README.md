@@ -26,4 +26,4 @@ npm install supabase --save-dev
 npx supabase init
 npx supabase start
 ```
-7. Now you're cooking with gas: You should not have a fully functional version of Aldous running locally. Feel free to dive into some tickets and build!
+7. Now you're cooking with gas: You should not have a fully functional version of Aldous running locally. Dive into some tickets and build!
