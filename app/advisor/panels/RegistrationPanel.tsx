@@ -106,7 +106,7 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
                     <div className="flex flex-row justify-between p-4">
                         <div className="flex flex-row">
                             <p className="text-2xl text-center">Registration is&nbsp;</p>
-                            <div className="badge badge-primary badge-xl">Open</div>
+                            <div className="badge badge-warning badge-xl">Paused</div>
                         </div>
                         <div className="flex flex-row">
                             <p className="text-2xl text-center">Waitlist is&nbsp;</p>
