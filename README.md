@@ -20,7 +20,7 @@ npm run build
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
-6. Set up the local supabase environment: If you do not already have a local container environment set up (like Docker) follow the one of the links at the top of https://supabase.com/docs/guides/local-development to download whichever one fits your device. Then, run the following commands. Your local supabase portal will be at: http://localhost:54323.<br>
+6. IGNORE FOR NOW. THERE ARE SOME ISSUES WITH DOCKER. Set up the local supabase environment: If you do not already have a local container environment set up (like Docker) follow the one of the links at the top of https://supabase.com/docs/guides/local-development to download whichever one fits your device. Then, run the following commands. Your local supabase portal will be at: http://localhost:54323.<br>
 ```
 npm install supabase --save-dev
 npx supabase init
