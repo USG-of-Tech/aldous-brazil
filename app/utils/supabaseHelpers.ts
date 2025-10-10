@@ -596,7 +596,7 @@ export const registrationNumber = await getAmountRegistered();
 const regCaps = [1200, 1900, 1900, 1900]
 
 export async function isRegOpen() {
-    return registrationNumber <= regCaps[0] && currentConference.open_reg;
+    return registrationNumber <= regCaps[1] && currentConference.open_reg;
     /*console.log("Hey");
 
     const currentConference = await getCurrentConference();
