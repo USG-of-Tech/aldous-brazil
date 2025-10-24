@@ -1,5 +1,6 @@
 'use client';
 
+import DropdownIcon from "@/app/utils/DropdownIcon";
 import { UN_COUNTRIES } from "@/app/utils/generalHelper";
 import { getSchool, SchoolProps, updateSchool } from "@/app/utils/supabaseHelpers";
 import { useEffect, useState } from "react";
@@ -7,6 +8,7 @@ import { useEffect, useState } from "react";
 function CountriesPanel() {
     const [school, setSchool] = useState<SchoolProps>();
     const [schoolLoaded, setSchoolLoaded] = useState(false);
+    const [droppedDown, setDroppedDown] = useState(false);
     const [saveLoading, setSaveLoading] = useState(false);
     const [countryPreferences, setCountryPreferences] = useState<string[]>([]);
 
@@ -51,7 +53,7 @@ function CountriesPanel() {
                 setSchool(updatedSchool);
             }
         } catch (e) {
-            window.alert("Failed to save preferences. Please try again in a moment.");
+            window.alert("Failed to save country preferences. Please try again in a moment.");
             console.error(e);
         }
         setSaveLoading(false);
@@ -60,7 +62,10 @@ function CountriesPanel() {
     return (
         <div className="bg-black flex flex-col gap-2 w-full p-4 border-2 border-primary rounded-2xl">
             <div className="flex flex-row gap-10 items-center justify-between">
-                <h4 className="text-5xl">Country Preferences</h4>
+                <div className="flex flex-row gap-2">
+                    <h4 className="text-5xl">Country Preferences</h4>
+                    <DropdownIcon status={droppedDown} setStatus={setDroppedDown} />
+                </div>
                 <button
                     className="btn btn-lg btn-secondary"
                     onClick={saveCountries}
@@ -71,33 +76,34 @@ function CountriesPanel() {
                 </button>
             </div>
 
-            {schoolLoaded && (
-                <div className="grid grid-cols-2 md:grid-cols-5 justify-between flex-wrap gap-4">
-                    {countryNumbers.map((_, index) => (
-                        <div key={index}>
-                            <label className="label text-lg">Country {index + 1}</label>
-                            <select
-                                className="select select-primary select-lg"
-                                value={countryPreferences[index] || ""}
-                                onChange={(e) => {
-                                    const updated = [...countryPreferences];
-                                    updated[index] = e.target.value;
-                                    setCountryPreferences(updated);
-                                }}
-                            >
-                                <option disabled value="">
-                                    
-                                </option>
-                                {UN_COUNTRIES.map((country, i) => (
-                                    <option key={i} value={country}>
-                                        {country}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+            <div
+            className={`grid grid-cols-2 md:grid-cols-5 justify-between flex-wrap gap-4 overflow-hidden transition-all duration-500 ease-in-out
+                ${droppedDown && schoolLoaded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}
+            `}
+            >
+            {countryNumbers.map((_, index) => (
+                <div key={index}>
+                <label className="label text-lg">Country {index + 1}</label>
+                <select
+                    className="select select-primary select-lg"
+                    value={countryPreferences[index] || ""}
+                    onChange={(e) => {
+                    const updated = [...countryPreferences];
+                    updated[index] = e.target.value;
+                    setCountryPreferences(updated);
+                    }}
+                >
+                    <option disabled value=""></option>
+                    {UN_COUNTRIES.map((country, i) => (
+                    <option key={i} value={country}>
+                        {country}
+                    </option>
                     ))}
+                </select>
                 </div>
-            )}
+            ))}
+            </div>
+
         </div>
     );
 }

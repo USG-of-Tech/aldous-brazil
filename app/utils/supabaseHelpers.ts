@@ -365,6 +365,7 @@ export async function getCurrentConference() {
 export const currentConference = await getCurrentConference();
 
 export interface RegistrationProps {
+    id?: number,
     num_beginner_delegates: number,
     num_intermediate_delegates: number,
     num_advanced_delegates: number,
@@ -372,7 +373,8 @@ export interface RegistrationProps {
     num_chinese_speaking_delegates: number,
     delegate_fees_paid: number,
     registration_fee_paid: boolean,
-    is_waitlisted: boolean
+    is_waitlisted: boolean,
+    committee_preferences?: string[]
 }
 
 export async function getRegistration() {
@@ -421,6 +423,32 @@ export async function createRegistration(registrationStruct: RegistrationProps) 
     }
 
     return true;
+}
+
+export async function updateRegistration(regData: RegistrationProps) {
+  const user = await getSupabaseUser();
+
+  if (!user || user.user_type !== "advisor") {
+    console.error("Only advisors can register");
+    return { error: "Only advisors can register." };
+  }
+
+  // Upsert the registration
+  const { data, error } = await supabase
+    .from("Registration")
+    .upsert({
+      ...regData,
+      id: regData.id
+    })
+    .select();
+
+  if (error) {
+    console.error("Error upserting registration:", error.message);
+    return { error: error.message };
+  }
+
+  console.log("Registration upserted:", data);
+  return { data };
 }
 
 export interface AssignmentProps {
