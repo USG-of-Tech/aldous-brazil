@@ -1,6 +1,6 @@
 'use client';
 
-import { currentConference, getRegistration, isRegOpen, isWaitlistOpen, RegistrationProps } from "@/app/utils/supabaseHelpers";
+import { currentConference, getRegistration, isRegOpen, RegistrationProps } from "@/app/utils/supabaseHelpers";
 import { useEffect, useState } from "react";
 
 interface RegistrationPanelProps {
