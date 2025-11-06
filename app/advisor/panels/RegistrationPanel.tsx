@@ -1,15 +1,16 @@
 'use client';
 
-import { currentConference, getRegistration, isRegOpen, RegistrationProps } from "@/app/utils/supabaseHelpers";
+import { currentConference, getRegistration, isRegOpen, isWaitlistOpen, RegistrationProps } from "@/app/utils/supabaseHelpers";
 import { useEffect, useState } from "react";
 
 interface RegistrationPanelProps {
     setCreatingRegistration: Function,
     setRegLoading: Function,
-    setPageNum: Function
+    setPageNum: Function,
+    waitlistOpen: boolean
 }
 
-function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}: RegistrationPanelProps) {
+function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum, waitlistOpen}: RegistrationPanelProps) {
     const [regOpen, setRegOpen] = useState(false);
     const [registered, setRegistered] = useState(false);
     const [registration, setRegistration] = useState<RegistrationProps>();
@@ -28,14 +29,13 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
         try {
             const newRegOpen = await isRegOpen();
             if (newRegOpen == null){
-                return;
+                throw new Error("Failed to check if registration is open.");
             }
-            console.log(newRegOpen);
             setRegOpen(newRegOpen);
         } catch (e) {
             console.error(e);
         }
-    })()}, [])
+    })()}, []);
 
     return (
         <div className="bg-black flex flex-col w-full p-4 border-2 border-primary rounded-2xl">
@@ -44,13 +44,28 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
             </div>
             {registered && registration !== undefined ?
                 <div className="flex flex-col w-full justify-start text-xl">
-                    <p>Congratulations! You have successfully registered for <span className="text-primary font-bold">BMUN {currentConference.session}</span>!
-                    Please view the listed information to see your confirmed registration numbers and payment status. Please direct 
-                    any questions to <span className="text-primary font-bold">info@bmun.org</span> and <span className="text-primary font-bold">tech@bmun.org</span>.
+                    {registration.is_waitlisted ? 
+                    <p>
+                        You have joined the <span className="text-primary font-bold">waitlist</span> for <span className="text-primary font-bold">BMUN {currentConference.session}</span>!
+                        Please view the listed information to see your requested registration numbers. Please direct 
+                        any questions to <span className="text-primary font-bold">info@bmun.org</span> and <span className="text-primary font-bold">tech@bmun.org</span>. 
+                        You will be notified via email if your delegation is taken off the waitlist.
+                    </p> :
+                    <p>
+                        Congratulations! You have successfully registered for <span className="text-primary font-bold">BMUN {currentConference.session}</span>!
+                        Please view the listed information to see your confirmed registration numbers and payment status. Please direct 
+                        any questions to <span className="text-primary font-bold">info@bmun.org</span> and <span className="text-primary font-bold">tech@bmun.org</span>.
                     </p>
+                    }
                     <div className="stats py-2">
                         <div className="stat">
-                            <div className="stat-title text-base">Total Registered</div>
+                            <div className="stat-title text-base">
+                                {
+                                    registration.is_waitlisted ?
+                                    "Total Requested" :
+                                    "Total Registered"
+                                }
+                            </div>
                             <div className="stat-value text-info">{registration.num_beginner_delegates + registration.num_intermediate_delegates + registration.num_advanced_delegates}</div>
                         </div>
                         <div className="stat">
@@ -68,7 +83,7 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
                     </div>
                     <p>
                         Please take the time to review the <span className="text-primary hover:cursor-pointer"><b onClick={() => setPageNum(3)}>Website Guide</b></span> to familiarize yourself
-                        with the features of <span className="text-primary font-bold">Aldous</span>. We have provided tutorials on the key functionality that you and your 
+                        with the features of <span className="text-primary font-bold">Aldous</span>. We have provided tutorials on the key functionalities that you and your 
                         delegates need to understand for the upcoming conference! See you in the Spring.
                     </p>
                     <div className="flex flex-row flex-wrap gap-4 mt-8 w-full justify-between">
@@ -99,18 +114,26 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum}:
                         Please familiarize yourself with our delegate fees and refund deadlines prior to registering.
                     </p>
                     <button className="btn btn-xl text-xl btn-primary mt-4"
-                        disabled={!regOpen}
+                        disabled={!regOpen && !waitlistOpen}
                         onClick={() => setCreatingRegistration(true)}>
-                            Register Now
+                            {waitlistOpen ? "Join Waitlist" : "Register Now"}
                     </button>
                     <div className="flex flex-row justify-between p-4">
                         <div className="flex flex-row">
                             <p className="text-2xl text-center">Registration is&nbsp;</p>
-                            <div className="badge badge-primary badge-xl">Open</div>
+                            {
+                                regOpen ?
+                                <div className="badge badge-primary badge-xl">Open</div> :
+                                <div className="badge badge-error badge-xl">Closed</div>
+                            }
                         </div>
                         <div className="flex flex-row">
                             <p className="text-2xl text-center">Waitlist is&nbsp;</p>
-                            <div className="badge badge-error badge-xl">Closed</div>
+                            {
+                                waitlistOpen ?
+                                <div className="badge badge-primary badge-xl">Open</div> :
+                                <div className="badge badge-error badge-xl">Closed</div>
+                            }
                         </div>
                     </div>
                 </div>

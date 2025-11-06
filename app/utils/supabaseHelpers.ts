@@ -621,7 +621,7 @@ export async function getAmountRegistered() {
 
 export const registrationNumber = await getAmountRegistered();
 
-const regCaps = [1200, 2050, 2050, 2050]
+const regCaps = [1200, 3000, 2050, 2050]
 
 export async function isRegOpen() {
     return registrationNumber <= regCaps[1] && currentConference.open_reg;
@@ -666,6 +666,16 @@ export async function isRegOpen() {
 
     console.log(4);
     return true;*/
+}
+
+export async function isWaitlistOpen() {
+    const currentConference = await getCurrentConference();
+
+    if (currentConference) {
+        return currentConference.waitlist_reg
+    }
+
+    return false
 }
 
 export async function resetPassword(password: string) {
