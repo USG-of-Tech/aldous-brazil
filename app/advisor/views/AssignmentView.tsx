@@ -14,11 +14,11 @@ function AssignmentView() {
 
     const [submittingDelegates, setSubmittingDelegates] = useState(false);
 
-    const [assignmentId, setAssignmentId] = useState(0);
-    const [assignmentDelegates, setAssignmentDelegates] = useState<DelegateProps[]>([]);
-    const [specialized, setSpecialized] = useState(false);
-    const [committeeName, setCommitteeName] = useState("");
-    const [countryName, setCountryName] = useState("");
+    const [assignmentId, ______] = useState(0);
+    const [assignmentDelegates, __] = useState<DelegateProps[]>([]);
+    const [specialized, ___] = useState(false);
+    const [committeeName, ____] = useState("");
+    const [countryName, _] = useState("");
 
     useEffect(() => {(async () => {
         const newAssignments = await loadAssignments();
@@ -97,14 +97,14 @@ function AssignmentView() {
                                             <button 
                                                 className="btn btn-primary btn-lg" 
                                                 disabled={assignment.rejected || true}
-                                                onClick={() => {
+                                                /*onClick={() => {
                                                     setAssignmentId(assignment.id);
                                                     setAssignmentDelegates(delegates.filter(delegate => delegate.assignment_id === assignment.id));
                                                     setSpecialized(false);
                                                     setCommitteeName(assignment.committee_name);
                                                     setCountryName(assignment.country_name);
                                                     setSubmittingDelegates(true);
-                                                }}
+                                                }}*/
                                             >
                                                 Assign ({delegates.filter(delegate => delegate.assignment_id === assignment.id).length}/2)
                                             </button>
