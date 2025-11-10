@@ -452,7 +452,7 @@ export async function updateRegistration(regData: RegistrationProps) {
 }
 
 export interface AssignmentProps {
-    id: number,
+    id?: number,
     committee_id: number,
     committee_name: string,
     country_name: string,
@@ -517,12 +517,14 @@ async function getRegBySchool(school_name: string) {
         .from('School')
         .select('id')
         .eq('name', school_name)
-        .single();
+        .maybeSingle();
 
     if (schoolError || !schoolData) {
         console.error(schoolError)
         return null;
     }
+
+    console.log(schoolData.id);
 
     const school_id = schoolData.id
 
@@ -530,12 +532,14 @@ async function getRegBySchool(school_name: string) {
         .from('Registration')
         .select('id')
         .eq('school_id', school_id)
-        .single();
+        .maybeSingle();
 
     if (regError || !regData) {
         console.error(regError)
         return null;
     }
+
+    console.log(regData.id);
 
     return regData.id;
 }
@@ -555,12 +559,21 @@ async function getCommitteeByName(committee_name: string) {
 }
 
 export async function uploadAssignments(newAssignments: AssignmentUploadProps[]) {
-    newAssignments.forEach(async (assignment: AssignmentUploadProps) => {
+    for (const assignment of newAssignments) {
+        console.log(assignment.school_name);
         const registration_id = await getRegBySchool(assignment.school_name);
         const committee_id = await getCommitteeByName(assignment.committee_name);
-        if (registration_id == null || committee_id == null) {
-            console.error("Registration or Committee does not exist");
+        if (registration_id == null) {
+            console.error("Registration does not exist");
             alert(`Failed attempting to upload assignment ${assignment.committee_name}. All before listed assignment succeeded`);
+        }
+        if (committee_id == null) {
+            console.error("Committee does not exist");
+            console.error(assignment.committee_name);
+        }
+        if (registration_id == null || committee_id == null) {
+            alert(`Failed attempting to upload assignment ${assignment.committee_name}. All before listed assignment succeeded`);
+            return false;
         }
         const success = await createAssignment({
             committee_id: parseInt(committee_id),
@@ -568,12 +581,12 @@ export async function uploadAssignments(newAssignments: AssignmentUploadProps[])
             registration_id: parseInt(registration_id),
             country_name: assignment.country_name,
             rejected: false,
-            id: Math.floor(Math.random() * 2_147_483_648)
+            /*id: Math.floor(Math.random() * 2_147_483_648)*/
         });
         if (!success) {
             return false;
         }
-    })
+    }
 }
 
 export async function loadAssignments() {
