@@ -1,6 +1,6 @@
 'use client';
 
-import { createRegistration, currentConference } from "@/app/utils/supabaseHelpers";
+import { createRegistration } from "@/app/utils/supabaseHelpers";
 import React, { useState } from "react";
 
 interface RegistrationModalProps {
@@ -48,7 +48,7 @@ function RegistrationForm ({creatingRegistration, setCreatingRegistration, waitl
                 <div className="absolute z-10 w-full h-full bg-black opacity-60" onClick={() => setCreatingRegistration(false)}></div>
                 <fieldset className="fieldset z-20 bg-black border-primary rounded-box w-md border-2 p-4 opacity-100">
                     <h3 className="text-5xl">
-                        {waitlistOpen ? `Join the BMUN ${currentConference.session} waitlist`: `Register for BMUN ${currentConference.session}`} 
+                        {waitlistOpen ? `Join the BMUN Brazil waitlist`: `Register for BMUN Brazil`} 
                     </h3>
                     <label className="label text-xl">Number of Beginner Delegates</label>
                     <input

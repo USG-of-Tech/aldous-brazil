@@ -66,7 +66,7 @@ function NavBar({setPageNum}: NavBarProps) {
                     <h1 className="hidden md:flex flex-row items-center gap-2 text-3xl p-2 hover:cursor-pointer" onClick={() => setPageNum(0)}>
                         <Image src="/BMUN Logo Blue.png" alt="BMUN Logo" width={150} height={35} />
                     </h1>
-                    <h1 className="md:hidden text-3xl p-2 hover:cursor-pointer" onClick={() => setPageNum(0)}>
+                    <h1 className="md:hidden flex flex-row items-center gap-2 text-3xl p-2 hover:cursor-pointer" onClick={() => setPageNum(0)}>
                         <Image src="/BMUN Logo Blue.png" alt="BMUN Logo" width={150} height={35} />
                     </h1>
                 </div>

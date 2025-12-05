@@ -1,7 +1,5 @@
-import { currentConference } from "../utils/supabaseHelpers";
-
 export const openingSpiel = <p className="text-xl">
-It looks like you have <b>not yet registered for BMUN {currentConference.session}. </b>
+It looks like you have <b>not yet registered for BMUN Brazil. </b>
 In order to do so, please click on the button below to fill out our registration form.
 If you need some guidance on the process please navigate to our <span className="text-primary">Website Guide</span>.
 We have provided an array of tutorials for each feature of Aldous and the registration process as a whole.

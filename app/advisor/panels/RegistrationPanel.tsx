@@ -1,6 +1,6 @@
 'use client';
 
-import { currentConference, getRegistration, isRegOpen, RegistrationProps } from "@/app/utils/supabaseHelpers";
+import { getRegistration, isRegOpen, RegistrationProps } from "@/app/utils/supabaseHelpers";
 import { useEffect, useState } from "react";
 
 interface RegistrationPanelProps {
@@ -40,19 +40,19 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum, 
     return (
         <div className="bg-black flex flex-col w-full p-4 border-2 border-primary rounded-2xl">
             <div className="flex flex-row justify-start">
-                <h2 className="text-7xl">Welcome to <span className="text-primary text-nowrap">BMUN {currentConference.session}</span>!</h2>
+                <h2 className="text-7xl">Welcome to <span className="text-primary text-nowrap">BMUN Brazil</span>!</h2>
             </div>
             {registered && registration !== undefined ?
                 <div className="flex flex-col w-full justify-start text-xl">
                     {registration.is_waitlisted ? 
                     <p>
-                        You have joined the <span className="text-primary font-bold">waitlist</span> for <span className="text-primary font-bold">BMUN {currentConference.session}</span>!
+                        You have joined the <span className="text-primary font-bold">waitlist</span> for <span className="text-primary font-bold">BMUN Brazil</span>!
                         Please view the listed information to see your requested registration numbers. Please direct 
                         any questions to <span className="text-primary font-bold">info@bmun.org</span> and <span className="text-primary font-bold">tech@bmun.org</span>. 
                         You will be notified via email if your delegation is taken off the waitlist.
                     </p> :
                     <p>
-                        Congratulations! You have successfully registered for <span className="text-primary font-bold">BMUN {currentConference.session}</span>!
+                        Congratulations! You have successfully registered for <span className="text-primary font-bold">BMUN Brazil</span>!
                         Please view the listed information to see your confirmed registration numbers and payment status. Please direct 
                         any questions to <span className="text-primary font-bold">info@bmun.org</span> and <span className="text-primary font-bold">tech@bmun.org</span>.
                     </p>
@@ -104,7 +104,7 @@ function RegistrationPanel({setCreatingRegistration, setRegLoading, setPageNum, 
                 :
                 <div className="flex flex-col w-full h-full justify-start">
                     <p className="text-xl">
-                        It looks like you have <b>not yet registered for BMUN {currentConference.session}. </b>
+                        It looks like you have <b>not yet registered for BMUN Brazil. </b>
                         In order to do so, please click on the button below to fill out our registration form.
                         If you need some guidance on the process please navigate to our <span className="text-primary hover:cursor-pointer"><b onClick={() => setPageNum(3)}>Website Guide</b></span>.
                         We have provided tutorials for the website&apos;s features and we will continue to update it as conference approaches.

@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from "react";
-import { currentConference, loginUser } from "../../utils/supabaseHelpers";
+import { loginUser } from "../../utils/supabaseHelpers";
 import { useRouter } from 'next/navigation';
 import { autoRedirect } from "../../utils/generalHelper";
+import Image from 'next/image';
 
 interface LoginProps {
     setRegistering: Function,
@@ -48,8 +49,14 @@ function LoginForm({setRegistering}: LoginProps) {
 
     return (
         <div>
-            <h1 className="text-5xl text-center">Aldous for <span className="text-primary">BMUN {currentConference.session}</span></h1>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-xs border p-4">
+                <div className="flex flex-row w-full items-center justify-center">
+                    <Image
+                    src={'/brazil_logo_white.png'}
+                    width={250} 
+                    height={35}
+                    />
+                </div>
                 <label className="label">Email</label>
                 <input type="email" className={`input input-lg ${emailError ? 'input-error' : ''}`} placeholder="info@bmun.org" value={email} onChange={(event) => setEmail(event.target.value)} />
 
