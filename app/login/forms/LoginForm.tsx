@@ -55,6 +55,7 @@ function LoginForm({setRegistering}: LoginProps) {
                     src={'/brazil_logo_white.png'}
                     width={250} 
                     height={35}
+                    alt="Brazil logo"
                     />
                 </div>
                 <label className="label">Email</label>
